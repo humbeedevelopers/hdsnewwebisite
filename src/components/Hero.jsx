@@ -42,7 +42,7 @@ const Hero = () => {
         {/* Scroll */}
         <div className="mb-[-1px] z-10">
           <div className="bg-[#E6E6E6] px-8 py-4 rounded-t-full flex items-center justify-center">
-              <Mouse size={24} className="rotate-180 text-blue-600" />
+              <Mouse size={24} className="rotate-180 text-[#0039C8]" />
           </div>
         </div>
 
