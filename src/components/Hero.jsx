@@ -3,46 +3,45 @@ import { Plus, ArrowUpRight, Mouse } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="min-h-screen w-full p-4 bg-white font-instrument">
-      {/* Blue Container */}
-      <div className="relative w-full h-[92vh] rounded-[40px] bg-[#0039C8] flex flex-col items-center justify-between overflow-hidden shadow-2xl">
+    <section className="relative min-h-screen w-full p-3 md:p-4 font-instrument selection:bg-blue-200">
+      <div className="relative flex min-h-[90vh] w-full flex-col items-center justify-between overflow-hidden rounded-hero bg-primary shadow-2xl">
         
         {/* Navigation Bar */}
-        <nav className="mt-8 flex items-center justify-between lg:w-1/3 bg-[#E6E6E6] backdrop-blur-md px-4 py-2 rounded-full shadow-lg">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-[#0039C8] rounded-full flex items-center justify-center">
-              <div className="w-2 h-2 bg-white rounded-full"></div>
+        <nav className="z-20 mt-6 flex w-[90%] items-center justify-between rounded-full bg-bg-soft/95 backdrop-blur-md px-4 py-2 shadow-lg sm:w-[80%] md:w-[70%] lg:w-[45%] xl:w-[35%]">
+          <div className="flex items-center gap-3">
+            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+              <div className="h-2 w-2 rounded-full bg-white" />
             </div>
-            <span className="font-sans font-medium text-gray-900 tracking-tight">H/DS</span>
+            <img className="h-5 w-auto md:h-6" src="/logo.png" alt="Agency Logo" />
           </div>
           
           <div className="flex items-center gap-2">
-            <button className="bg-[#0039C8] text-white px-5 py-2 rounded-full text-sm font-medium flex items-center gap-2 transition-colors">
-              Book a call <ArrowUpRight size={16} />
+            <button className="flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-xs font-medium text-white active:scale-95 md:px-5 md:text-sm">
+              Book a call <ArrowUpRight size={14} />
             </button>
-            <button className="p-2 rounded-full border-2 border-gray-800 transition-colors">
-              <Plus size={20} className="text-gray-800" />
+            <button className="rounded-full border-2 border-surface p-1.5 md:p-2 text-surface">
+              <Plus size={18} />
             </button>
           </div>
         </nav>
 
         {/* Hero Content */}
-        <div className="flex flex-col items-center text-center z-10 px-6">
-          <h1 className="text-white max-w-5xl text-4xl tracking-normal md:text-7xl md:scale-y-110 lg:text-[84px]">
+        <div className="relative z-10 flex flex-col items-center px-6 text-center">
+          <h1 className="max-w-6xl font-instrument text-4xl leading-[1.1] tracking-tight text-white sm:text-5xl md:text-7xl lg:text-[88px] xl:text-[96px]">
             Award winning <br className="hidden md:block" />
-            Design agency bridging <br className="hidden md:block" />
-            product, brand & people
+            <span className="opacity-90">Design agency bridging</span> <br className="hidden md:block" />
+            <span>product, brand & people</span>
           </h1>
           
-          <p className="mt-8 font-sans text-blue-100 text-base md:text-xl tracking-wide max-w-2xl">
+          <p className="mt-6 max-w-2xl font-sans text-base tracking-wide text-blue-100/80 md:mt-10 md:text-xl">
             Transforming Bold Ideas into Exceptional Digital Experiences
           </p>
         </div>
 
-        {/* Scroll */}
-        <div className="mb-[-1px] z-10">
-          <div className="bg-[#E6E6E6] px-8 py-4 rounded-t-full flex items-center justify-center">
-              <Mouse size={24} className="rotate-180 text-[#0039C8]" />
+        {/* Scroll Indicator */}
+        <div className="relative z-10 mb-[-1px]">
+          <div className="flex h-12 w-20 items-center justify-center rounded-t-full bg-bg-soft md:h-16 md:w-28">
+            <Mouse size={24} className="rotate-180 text-primary" />
           </div>
         </div>
 
