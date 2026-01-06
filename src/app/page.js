@@ -1,7 +1,9 @@
+import React from 'react'
+
 import About from '@/components/About'
 import Hero from '@/components/Hero'
 import Clients from '@/components/Clients'
-import React from 'react'
+import Works from '@/components/Works'
 
 const page = () => {
   return (
@@ -9,6 +11,7 @@ const page = () => {
       <Hero/>
       <About/>
       <Clients/>
+      <Works/>
     </div>
   )
 }

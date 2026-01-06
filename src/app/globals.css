@@ -2,13 +2,14 @@
 
 @theme {
   --font-instrument: var(--font-instrument);
+  --font-montserrat: var(--font-montserrat);
+  --font-open-sans: var(--font-open-sans);
 
   --color-primary: var(--color-primary);
   --color-secondary: var(--color-secondary);
   --color-surface: var(--color-surface);
   --color-bg-light: var(--color-bg-light);
   --color-bg-soft: var(--color-bg-soft);
-
   --radius-hero: var(--radius-hero);
   --radius-card: var(--radius-card);
   
