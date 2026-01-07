@@ -3,7 +3,7 @@ import { Plus, ArrowUpRight, Mouse } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen w-full p-3 md:p-4 font-instrument selection:bg-blue-200">
+    <section className="relative min-h-screen w-full p-3 md:p-4 font-instrument">
       <div className="relative flex min-h-[90vh] w-full flex-col items-center justify-between overflow-hidden rounded-hero bg-primary shadow-2xl">
         
         {/* Navigation Bar */}

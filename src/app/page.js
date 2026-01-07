@@ -4,6 +4,8 @@ import About from '@/components/About'
 import Hero from '@/components/Hero'
 import Clients from '@/components/Clients'
 import Works from '@/components/Works'
+import Highlights from '@/components/Highlights'
+import Footer from '@/components/Footer'
 
 const page = () => {
   return (
@@ -12,6 +14,8 @@ const page = () => {
       <About/>
       <Clients/>
       <Works/>
+      <Highlights/>
+      <Footer />
     </div>
   )
 }

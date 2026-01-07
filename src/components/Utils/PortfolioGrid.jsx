@@ -22,7 +22,7 @@ const portfolioItems = [
 
 const PortfolioGrid = () => {
   return (
-    <div className="columns-2 md:columns-3 gap-10 px-6 space-y-10 mt-16">
+    <div className="columns-2 md:columns-3 gap-4 md:gap-10 md:space-y-10 md:px-6 px-2 space-y-4 mt-16">
       {portfolioItems.map((item) => (
         <div key={item.id} className="break-inside-avoid group cursor-pointer">
           <div className="relative overflow-hidden rounded-lg bg-gray-100 shadow-sm">
