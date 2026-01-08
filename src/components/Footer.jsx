@@ -59,7 +59,7 @@ const Footer = () => {
 
       {/* mail-us@ */}
       <div className="px-5 md:px-40 mt-10">
-        <a href="mailto:hello@humbeestudio.com" className="block text-center text-xl font-bold border py-4 hover:bg-gray-50 transition-colors">
+        <a href="mailto:hello@humbeestudio.com" className="block text-center text-xl font-bold border py-4">
           hello@humbeestudio.com
         </a>
       </div>
