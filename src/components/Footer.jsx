@@ -37,8 +37,8 @@ const Footer = () => {
 
       {/* footer switch buttons */}
       <div className="w-full md:w-2/5 py-2 px-5 flex flex-wrap text-md gap-5">
-        {switch_button.map((text, index) => (
-          <button key={index} className="rounded-full inline-block bg-bg-light shadow-md cursor-pointer transition-colors duration-300 hover:bg-primary hover:text-bg-light py-1.5 px-3">
+        {switch_button.map((text) => (
+          <button key={text} className="rounded-full inline-block bg-bg-light shadow-md cursor-pointer transition-colors duration-300 hover:bg-primary hover:text-bg-light py-1.5 px-3">
             {text}
           </button>
         ))}

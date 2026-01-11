@@ -1,23 +1,23 @@
-import React from 'react'
+"use client"
 
-import About from '@/components/About'
 import Hero from '@/components/Hero'
+import About from '@/components/About'
 import Clients from '@/components/Clients'
 import Works from '@/components/Works'
 import Highlights from '@/components/Highlights'
 import Footer from '@/components/Footer'
 
-const page = () => {
+const Page = () => {
   return (
-    <div>
-      <Hero/>
-      <About/>
-      <Clients/>
-      <Works/>
-      <Highlights/>
+    <main>
+      <Hero />
+      <About />
+      <Clients />
+      <Works />
+      <Highlights />
       <Footer />
-    </div>
+    </main>
   )
 }
 
-export default page
+export default Page

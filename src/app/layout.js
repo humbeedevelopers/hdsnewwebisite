@@ -3,44 +3,42 @@ import "./globals.css";
 import Navbar from "@/components/Utils/Navbar";
 
 const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument",
-  weight: "400",
   subsets: ["latin"],
+  weight: "400",
+  variable: "--font-instrument",
 });
 
 const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['400'], 
-  variable: '--font-montserrat',     
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-montserrat",
 });
 
 const openSans = Open_Sans({
-  subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-open-sans',
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-open-sans",
 });
 
 export const metadata = {
-  title: {
-    default: "Humbee Design Studio",
-    template: "%s | Humbee Design Studio",
-  },
-  description:
-    "Short, keyword-rich description of your product or website for SEO.",
-  metadataBase: new URL("https://yourdomain.com"),
+  title: "Humbee Design Studio",
+  description: "Digital Agency",
 };
-
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${instrumentSerif.variable} ${montserrat.variable} ${openSans.variable} antialiased relative`}>
+      <body 
+        className={`${instrumentSerif.variable} ${montserrat.variable} ${openSans.variable} antialiased bg-bg-light relative`}
+      >
         <div 
-          className="fixed inset-0 opacity-[0.20] pointer-events-none"
-          style={{ backgroundImage: `url('/grains.svg')` }}
-        ></div>
-        <Navbar />
-        {children}
+          className="fixed inset-0 -z-10 opacity-[0.15] bg-noise pointer-events-none" 
+          aria-hidden="true"
+        />
+        <div className="relative z-10">
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );
