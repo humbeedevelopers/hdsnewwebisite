@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .ScrollContainerSEction {
+            margin: 0 5vw;
+            display: flex;
+            /* minheight: 100vh; */
+            /* display: flex; */
+            /* place-items: center; */
+        }
+
+        .PinnedSection {
+            position: sticky;
+            top: 0;
+            width: 40%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            justify-content: center;
+            z-index: 10;
+        }
+
+
+
+        .ScrollContainer {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .ScrollContainer>div:first-of-type {
+            /* min-height: 65vh; */
+            /* height: 100%; */
+
+            /* display: grid; */
+            /* place-items: center; */
+        }
+
+        .scroll-root {
+            min-height: 800vh;
+        }
+
+        .scroll-root .scroll-container {
+            position: sticky;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            overflow-x: clip;
+        }
+
+        .scroll-root .scroll-container div {
+            position: absolute;
+            height: 100%;
+            min-height: 25rem;
+            max-height: 45rem;
+            width: 100%;
+            /* display: grid; */
+            padding: 20px 2rem;
+            font-size: 20px;
+            /* place-items: center; */
+            /* font-size: clamp(1.5rem, 2vw, 3rem); */
+            /* text-transform: uppercase; */
+        }
+
+        .InnerSectionText {
+            max-width: 500px;
+            padding-top: 4rem;
+            padding-bottom: 2rem;
+        }
+
+        .Btn-Container {
+            display: flex;
+            width: 250px;
+            /* height: fit-content; */
+            background-color: #ffff;
+            border-radius: 40px;
+            /* box-shadow: 0px 5px 10px #bebebe; */
+            justify-content: space-between;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+            font-family: "Montserrat", sans-serif;
+            color: black;
+            padding: 0px 0px 0 10px;
+            border-radius: 30px;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        .icon-Container {
+            width: 45px;
+            height: 45px;
+            background-color: #b38b00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            /* border: 3px solid #1d2129; */
+        }
+
+        .text {
+            width: calc(250px - 50px);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-family: "Montserrat", sans-serif;
+            font-size: 18px;
+        }
+
+        .icon-Container svg {
+            transition-duration: 1.5s;
+        }
+
+        .Btn-Container:hover .icon-Container svg {
+            transition-duration: 1.5s;
+            animation: arrow 1s linear infinite;
+        }
+
+        @keyframes arrow {
+            0% {
+                opacity: 0;
+                margin-left: 0px;
+            }
+
+            100% {
+                opacity: 1;
+                margin-left: 10px;
+            }
+        }
+
+        .scroll-root .scroll-container .card-1 {
+            z-index: 1;
+            background: #FFD878;
+            transform: none;
+        }
+
+        .scroll-root .scroll-container .card-2 {
+            z-index: 2;
+            background: #B0FF87;
+        }
+
+        .scroll-root .scroll-container .card-3 {
+            z-index: 3;
+            background: #93D1FF;
+        }
+
+        .scroll-root .scroll-container .card-4 {
+            z-index: 4;
+            background: #FFF773;
+        }
+
+        .scroll-container {
+            flex-direction: column;
+            overflow-y: clip;
+            top: 1rem;
+            height: calc(-2rem + 100vh);
+            margin: 1rem 0px;
+        }
+
+        .scroll-container .card-2 {
+            transform: translate3d(0, calc(100% - 240px), 0);
+        }
+
+        .scroll-container .card-3 {
+            transform: translate3d(0, calc(100% - 160px), 0);
+        }
+
+        .scroll-container .card-4 {
+            transform: translate3d(0, calc(100% - 80px), 0);
+        }
+
+        @media (max-width: 768px) {
+            .ScrollContainerSEction {
+                flex-direction: column;
+            }
+
+            .PinnedSection {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+
+            .ScrollContainer {
+                width: 100%;
+            }
+
+            .scroll-container {
+                flex-direction: column;
+                overflow-y: clip;
+                top: 1rem;
+                height: calc(-2rem + 100vh);
+                margin: 1rem 0px;
+            }
+
+            .scroll-container .card-2 {
+                transform: translate3d(0, calc(100% - 240px), 0);
+            }
+
+            .scroll-container .card-3 {
+                transform: translate3d(0, calc(100% - 160px), 0);
+            }
+
+            .scroll-container .card-4 {
+                transform: translate3d(0, calc(100% - 80px), 0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <div>
+            <div class="ScrollContainerSEction">
+                <div class="PinnedSection">
+                    <div class="pillars__left">
+                        <h2>Our Core Pillers</h2>
+                        <p>
+                            Join our curated collection of digital masterpieces
+                            where each project
+                            showcases our expertise in designing visually stunning,
+                            strategically
+                            driven experiences proven to achieve results.
+                        </p>
+
+                        <div class="illustration">
+                            <img src="/images/core pillars.png" alt="Illustration">
+                        </div>
+                    </div>
+                    <!-- <div class="PinnedGapSEction">
+                        <p class="PinnedTitle">
+                            Our core pillar
+                        </p>
+                        <p class="PinnedTitleInner">
+                            Join our curated collection of digital masterpieces where each
+                            project showcases our
+                            expertise in
+                            designing visually stunning, strategically driven experiences proven to achieve results.</p>
+
+                    </div> -->
+                </div>
+                <div class="ScrollContainer">
+                    <div>
+                        <h1></h1>
+                    </div>
+
+                    <div class="scroll-root">
+                        <div class="scroll-container">
+                            <div class="card-1">
+                                <h2>
+                                    1. Website & Web Apps
+                                </h2>
+                                <p class="InnerSectionText">
+                                    Join our curated collection of digital
+                                    masterpieces where each project
+                                    showcases our expertise in designing
+                                    visually stunning, strategically
+                                    driven experiences proven to achieve
+                                    results.
+                                </p>
+                                <button class="Btn-Container">
+                                    <span class="text">Slide to know more</span>
+                                    <span class="icon-Container">
+                                        <svg width="16" height="19" viewBox="0 0 16 19" fill="nones"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="1.61321" cy="1.61321" r="1.5" fill="white"></circle>
+                                            <circle cx="5.73583" cy="1.61321" r="1.5" fill="white"></circle>
+                                            <circle cx="5.73583" cy="5.5566" r="1.5" fill="white"></circle>
+                                            <circle cx="9.85851" cy="5.5566" r="1.5" fill="white"></circle>
+                                            <circle cx="9.85851" cy="9.5" r="1.5" fill="white"></circle>
+                                            <circle cx="13.9811" cy="9.5" r="1.5" fill="white"></circle>
+                                            <circle cx="5.73583" cy="13.4434" r="1.5" fill="white"></circle>
+                                            <circle cx="9.85851" cy="13.4434" r="1.5" fill="white"></circle>
+                                            <circle cx="1.61321" cy="17.3868" r="1.5" fill="white"></circle>
+                                            <circle cx="5.73583" cy="17.3868" r="1.5" fill="white"></circle>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="card-2">2. UI/UX & Design Systems</div>
+                            <div class="card-3">3. Branding & Social Media</div>
+                            <div class="card-4">4. Apps & SaaS Development</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+    <!-- GSAP ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <!-- GSAP SplitText -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const mm = gsap.matchMedia();
+
+        // large screens
+        // mm.add("(min-width: 769px)", () => {
+        //   gsap.to(".card-2", {
+        //     x: "80px",
+        //     scrollTrigger: {
+        //       trigger: ".scroll-root",
+        //       start: "top top",
+        //       end: "33% bottom",
+        //       scrub: true,
+        //       pin: ".scroll-container",
+        //       pinSpacing: false,
+        //       id: "card-2"
+        //     }
+        //   });
+
+        //   gsap.to(".card-3", {
+        //     x: "160px",
+        //     scrollTrigger: {
+        //       trigger: ".scroll-root",
+        //       start: () => ScrollTrigger.getById("card-2").end,
+        //       end: "66% bottom",
+        //       scrub: true,
+        //       pin: ".scroll-container",
+        //       pinSpacing: false,
+        //       id: "card-3"
+        //     }
+        //   });
+
+        //   gsap.to(".card-4", {
+        //     x: "240px",
+        //     scrollTrigger: {
+        //       trigger: ".scroll-root",
+        //       start: () => ScrollTrigger.getById("card-3").end,
+        //       end: "bottom bottom",
+        //       scrub: true,
+        //       pin: ".scroll-container",
+        //       pinSpacing: false,
+        //       id: "card-4"
+        //     }
+        //   });
+        // });
+
+        // small screens
+        mm.add("(max-width: 2400px)", () => {
+            gsap.to(".card-2", {
+                y: "80px",
+                scrollTrigger: {
+                    trigger: ".scroll-root",
+                    start: "top top",
+                    end: "33% bottom",
+                    scrub: true,
+                    pin: ".scroll-container",
+                    pinSpacing: false,
+                    id: "card-2"
+                }
+            });
+
+            gsap.to(".card-3", {
+                y: "160px",
+                scrollTrigger: {
+                    trigger: ".scroll-root",
+                    start: () => ScrollTrigger.getById("card-2").end,
+                    end: "66% bottom",
+                    scrub: true,
+                    pin: ".scroll-container",
+                    pinSpacing: true,
+                    id: "card-3"
+                }
+            });
+
+            gsap.to(".card-4", {
+                y: "240px",
+                scrollTrigger: {
+                    trigger: ".scroll-root",
+                    start: () => ScrollTrigger.getById("card-3").end,
+                    end: "bottom bottom",
+                    scrub: true,
+                    pin: ".scroll-container",
+                    pinSpacing: false,
+                    id: "card-4"
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>
