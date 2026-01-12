@@ -1,17 +1,31 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Plus, X, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navStyles = scrolled 
+    ? "bg-white/10 backdrop-blur-xl border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.2)]" 
+    : "bg-bg-soft/95 backdrop-blur-md border-white/10 shadow-lg";
+  
   return (
     <div className="fixed top-6 left-1/2 z-50 w-[90%] -translate-x-1/2 sm:w-[80%] md:w-[70%] lg:w-[45%] xl:w-[35%]">
       
-    {/* Main Navbar Bar */}
-      <nav className="flex items-center justify-between rounded-full bg-bg-soft/95 backdrop-blur-md px-4 py-2 shadow-lg border border-white/10">
+      {/* Main Navbar Bar */}
+      <nav className={`flex items-center justify-between rounded-full px-4 py-2 transition-all duration-500 ease-in-out border ${navStyles}`}>
         <div className="flex items-center gap-3">
           <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
             <div className="h-2 w-2 rounded-full bg-white" />
@@ -34,7 +48,7 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -5 }}
-                className="font-instrument text-sm md:text-base text-surface"
+                className={`font-instrument text-sm md:text-base transition-colors duration-500 text-surface`}
               >
                 Our clients love working with us
               </motion.span>
@@ -50,7 +64,9 @@ const Navbar = () => {
           <button 
             onClick={() => setIsOpen(!isOpen)}
             className={`rounded-full border-2 p-1.5 hover:border-primary cursor-pointer hover:bg-primary hover:text-white transition-all duration-300 md:p-2 ${
-              isOpen ? 'bg-primary border-primary text-white rotate-90' : 'border-surface text-surface'
+              isOpen 
+                ? 'bg-primary border-primary text-white rotate-90' 
+                : 'border-surface text-surface'
             }`}
           >
             {isOpen ? <X size={18} /> : <Plus size={18} />}
@@ -58,7 +74,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-    {/* Navbar options Dialogue box */}
+      {/* Navbar options Dialogue box */}
       <AnimatePresence>
         {isOpen && (
           <motion.div 

@@ -1,6 +1,7 @@
 import { Instrument_Serif, Montserrat, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Utils/Navbar";
+import SmoothScroll from "@/components/Utils/SmoothScroll";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -35,10 +36,12 @@ export default function RootLayout({ children }) {
           className="fixed inset-0 -z-10 opacity-[0.15] bg-noise pointer-events-none" 
           aria-hidden="true"
         />
-        <div className="relative z-10">
-          <Navbar />
-          {children}
-        </div>
+        <SmoothScroll>
+          <div className="relative z-10">
+            <Navbar />
+            {children}
+          </div>
+        </SmoothScroll>
       </body>
     </html>
   );
