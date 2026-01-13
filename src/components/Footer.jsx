@@ -1,94 +1,92 @@
 "use client";
-
-import React from 'react';
-import { ArrowUp, ArrowUpRight } from 'lucide-react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebook,
-  faInstagram,
-  faLinkedinIn,
-  faYoutube,
-  faDribbble,
-  faPinterest,
-  faBehance,
-} from "@fortawesome/free-brands-svg-icons";
+import React, { useState } from "react";
+import { ArrowUp, ArrowUpRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion"; // Added
+import ContactInformation from "./FooterTabs/ContactInformation";
+import ServicesLinks from "./FooterTabs/ServicesLinks";
+import Careers from "./FooterTabs/Careers";
+import FAQs from "./FooterTabs/FAQs";
 
 const Footer = () => {
-  const switch_button = ["All Services Links", "Contact Info", "FAQs", "Career"];
-  const branch_details = [
-    { city: "US", address: "11029 Tahiti isle ln, Tampa, 33647, Florida, United States", contact: "+1 (813) 545-0878" },
-    { city: "India", address: "724, Shivalik Shilp, S.G Highway, 380015, Ahmedabad, Gujarat", contact: "+91 98245-97524" },
-    { city: "Canada", address: "1490 Tecumseh Rd E Windsor, ON N8W 1C1", contact: "+1 (813) 545-0878" }
+  const filters = [
+    { label: "All Services Links", key: "services" },
+    { label: "Contact Info", key: "contact" },
+    { label: "FAQs", key: "faqs" },
+    { label: "Career", key: "careers" },
   ];
+
+  const [activeFilter, setActiveFilter] = useState("contact");
   const items = [1, 2, 3, 4];
 
-  const socialLinks = [
-    { icon: faFacebook, href: "#", label: "Facebook" },
-    { icon: faInstagram, href: "#", label: "Instagram" },
-    { icon: faLinkedinIn, href: "#", label: "LinkedIn" },
-    { icon: faYoutube, href: "#", label: "YouTube" },
-    { icon: faDribbble, href: "#", label: "Dribbble" },
-    { icon: faPinterest, href: "#", label: "Pinterest" },
-    { icon: faBehance, href: "#", label: "Behance" },
-  ];
+  const renderActiveComponent = () => {
+    switch (activeFilter) {
+      case "services": return <ServicesLinks />;
+      case "faqs": return <FAQs />;
+      case "careers": return <Careers />;
+      case "contact":
+      default: return <ContactInformation />;
+    }
+  };
 
   return (
-    <footer className="w-full relative min-h-150 flex flex-col gap-3 mt-5">
-
-      {/* footer switch buttons */}
-      <div className="w-full md:w-2/5 py-2 px-5 flex flex-wrap text-md gap-5">
-        {switch_button.map((text) => (
-          <button key={text} className="rounded-full inline-block bg-bg-light shadow-md cursor-pointer transition-colors duration-300 hover:bg-primary hover:text-bg-light py-1.5 px-3">
-            {text}
+    <footer className="w-full relative flex flex-col gap-3 mt-5 overflow-hidden">
+      
+      {/* 1. Filter Tray */}
+      <div className="w-full md:w-3/5 py-2 px-5 flex flex-wrap text-md gap-3 md:gap-5">
+        {filters.map((filter) => (
+          <button
+            key={filter.key}
+            onClick={() => setActiveFilter(filter.key)}
+            className={`relative rounded-full inline-block shadow-lg bg-bg-light cursor-pointer py-1.5 px-4 z-10 transition-colors duration-500
+              ${activeFilter === filter.key ? "text-white" : "text-black hover:bg-primary hover:text-bg-light"}`}
+          >
+            <span className="relative z-20">{filter.label}</span>
+            {activeFilter === filter.key && (
+              <motion.div
+                layoutId="activePill"
+                className="absolute inset-0 bg-primary rounded-full z-10"
+                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+              />
+            )}
           </button>
         ))}
       </div>
 
-      {/* branch information */}
-      <div className="w-full flex flex-col md:flex-row items-center justify-evenly gap-10 md:gap-0 mt-10">
-        {branch_details.map((object, index) => (
-          <div key={index} className="text-montserrat flex flex-col items-center gap-3 w-full md:w-1/5">
-            <h3 className="text-3xl font-thin">{object.city}</h3>
-            <p className="font-light text-center w-2/3">{object.address}</p>
-            <a href={`tel:${object.contact.replace(/\D/g, '')}`} className="font-bold hover:text-primary transition-colors">
-              {object.contact}
-            </a>
-          </div>
-        ))}
-      </div>
-
-      {/* mail-us@ */}
-      <div className="px-5 md:px-40 mt-10">
-        <a href="mailto:hello@humbeestudio.com" className="block text-center text-xl font-bold border py-4">
-          hello@humbeestudio.com
-        </a>
-      </div>
-
-      {/* socials */}
-      <div className="w-full mt-10 flex flex-wrap">
-        {socialLinks.map((social, index) => (
-          <a
-            key={index}
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={social.label}
-            className="flex-1 min-w-[33.33%] md:min-w-0 border flex items-center justify-center p-10 hover:bg-primary hover:text-white transition-all"
+      {/* Components */}
+      <div className="relative min-h-[400px]"> 
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeFilter}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
           >
-            <FontAwesomeIcon icon={social.icon} className="text-[40px] md:text-[50px]" />
-          </a>
-        ))}
+            {renderActiveComponent()}
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      {/* let's talk */}
+      {/* Email Box */}
+      <div className="px-5 md:px-20 mt-10">
+        <motion.a
+          whileHover={{ scale: 0.99 }}
+          href="mailto:hello@humbeestudio.com"
+          className="block text-center text-xl md:text-2xl border py-4 hover:bg-primary hover:text-white transition-all duration-300"
+        >
+          hello@humbeestudio.com
+        </motion.a>
+      </div>
+
+      {/* Let's Talk */}
       <div className="relative overflow-hidden mt-10 border-y py-6">
         <div className="flex animate-scroll-left w-max items-center">
-          {[...items, ...items].map((_, index) => (
+          {[...items, ...items, ...items].map((_, index) => (
             <div key={index} className="flex items-center gap-6 px-8">
-              <h1 className="text-5xl tracking-wide md:text-7xl font-thin flex items-center gap-6 whitespace-nowrap">
+              <h1 className="text-4xl md:text-7xl font-thin flex items-center gap-6 whitespace-nowrap uppercase">
                 Let's talk
-                <span className="bg-black text-white p-3 md:p-4 rounded-full">
-                  <ArrowUpRight size={40} strokeWidth={2.5} />
+                <span className="bg-black text-white p-2 md:p-4 rounded-full">
+                  <ArrowUpRight className="w-6 h-6 md:w-10 md:h-10" />
                 </span>
               </h1>
             </div>
@@ -96,18 +94,20 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* closure */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-center py-6 px-5 mb-5 text-2xl">
-        <h4 className="text-montserrat text-center md:text-left">&copy; 2026</h4>
-        <h4 className="text-montserrat text-center whitespace-nowrap">Made with Love</h4>
+      {/* Closure */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-center py-6 px-5 mb-5 text-lg md:text-2xl font-montserrat">
+        <h4 className="text-center md:text-left opacity-60">© 2026</h4>
+        <h4 className="text-center whitespace-nowrap">Made with Love</h4>
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="text-montserrat text-center md:text-right flex items-center justify-center md:justify-end gap-2 hover:text-primary transition-colors"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="group flex items-center justify-center cursor-pointer md:justify-end gap-2 hover:text-primary transition-colors"
         >
-          Go all the Way up <ArrowUp className="inline" />
+          Go all the way up 
+          <motion.div whileHover={{ y: -5 }}>
+            <ArrowUp />
+          </motion.div>
         </button>
       </div>
-      
     </footer>
   );
 };
