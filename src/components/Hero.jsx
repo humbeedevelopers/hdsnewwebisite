@@ -26,7 +26,7 @@ const Hero = () => {
           
         </div>
 
-        <div className="flex justify-center -mt-[31px] sm:-mt-[34px] md:-mt-[38px] relative z-10">
+        <div className="flex justify-center -mt-[31px] sm:-mt-[34px] md:-mt-[38px] animate-bounce relative z-10">
           <Mouse 
             size={32} 
             className="text-primary rotate-180" 
