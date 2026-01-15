@@ -1,0 +1,7 @@
+export { default as Hero } from './Hero'
+export { default as About } from './About'
+export { default as Clients } from './Clients'
+export { default as Works } from './Works'
+export { default as Highlights } from './Highlights'
+export { default as Footer } from './Footer'
+export { default as PortalSection } from './Utils/PortalSection'

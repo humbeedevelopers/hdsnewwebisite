@@ -41,7 +41,7 @@ const Careers = () => {
                     We believe in creating an environment where you’ll look forward to showing up every day (even though when it’s a MONDAY!)
                 </p>
             </div>
-            <div className='w-full text-left md:text-right'>
+            <div className='w-full text-right'>
                 <h4 className='text-lg font-thin'>We're Building</h4>
                 <h2 className='text-3xl font-bold'>#TheTalentAPI</h2>
             </div>
