@@ -52,3 +52,25 @@
 .bg-noise {
   background-image: var(--background-image-noise);
 }
+
+
+/* Strike Animation CSS */
+
+@layer utilities {
+  .strike {
+    position: relative;
+    display: inline-block;
+  }
+
+  .strike-line {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 4px;
+    width: 100%;
+    background: var(--color-primary);
+    display: block;
+    transform: translateY(-50%) scaleX(0);
+    transform-origin: left;
+  }
+}

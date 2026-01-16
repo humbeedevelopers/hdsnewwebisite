@@ -1,11 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion"; // Added
-import ContactInformation from "./FooterTabs/ContactInformation";
-import ServicesLinks from "./FooterTabs/ServicesLinks";
-import Careers from "./FooterTabs/Careers";
-import FAQs from "./FooterTabs/FAQs";
+import { motion, AnimatePresence } from "framer-motion"; 
+
+import {Careers, ContactInformation, ServicesLinks, FAQs} from './FooterTabs'
+import FadeInUpText from "@/Animations/FadeInUpText";
+import FadeInButtons from "@/Animations/FadeInButtons";
 
 const Footer = () => {
   const filters = [
@@ -31,8 +31,8 @@ const Footer = () => {
   return (
     <footer className="w-full relative flex flex-col gap-3 mt-5 overflow-hidden">
       
-      {/* 1. Filter Tray */}
-      <div className="w-full md:w-3/5 py-2 px-5 flex flex-wrap text-md gap-3 md:gap-5">
+      {/* Filter Tray */}
+      <FadeInButtons className="w-full md:w-3/5 py-2 px-5 flex flex-wrap text-md gap-3 md:gap-5">
         {filters.map((filter) => (
           <button
             key={filter.key}
@@ -50,7 +50,7 @@ const Footer = () => {
             )}
           </button>
         ))}
-      </div>
+      </FadeInButtons>
 
       {/* Components */}
       <div className="relative min-h-[400px]"> 
@@ -68,7 +68,7 @@ const Footer = () => {
       </div>
 
       {/* Email Box */}
-      <div className="px-5 md:px-20 mt-10">
+      <FadeInUpText className="px-5 md:px-20 mt-10">
         <motion.a
           whileHover={{ scale: 0.99 }}
           href="mailto:hello@humbeestudio.com"
@@ -76,10 +76,10 @@ const Footer = () => {
         >
           hello@humbeestudio.com
         </motion.a>
-      </div>
+      </FadeInUpText>
 
       {/* Let's Talk */}
-      <div className="relative overflow-hidden mt-10 border-y py-6">
+      <div className="relative cursor-pointer overflow-hidden mt-10 border-y py-6">
         <div className="flex animate-scroll-left w-max items-center">
           {[...items, ...items, ...items].map((_, index) => (
             <div key={index} className="flex items-center gap-6 px-8">
@@ -95,19 +95,34 @@ const Footer = () => {
       </div>
 
       {/* Closure */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-center py-6 px-5 mb-5 text-lg md:text-2xl font-montserrat">
-        <h4 className="text-center md:text-left opacity-60">© 2026</h4>
-        <h4 className="text-center whitespace-nowrap">Made with Love</h4>
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="group flex items-center justify-center cursor-pointer md:justify-end gap-2 hover:text-primary transition-colors"
-        >
-          Go all the way up 
-          <motion.div whileHover={{ y: -5 }}>
-            <ArrowUp />
-          </motion.div>
-        </button>
-      </div>
+      <FadeInUpText
+        start="-5%"
+        // stagger={0.2}
+        disableStagger = {true}
+        once={false}
+        className="grid grid-cols-1 md:grid-cols-3 gap-5 py-6 px-5 mb-5 text-lg md:text-2xl font-montserrat border-t border-white/10 items-center"
+      >
+        <h4 className="text-center md:text-left opacity-60">
+          © 2026
+        </h4>
+
+        <h4 className="text-center whitespace-nowrap">
+          Made with Love
+        </h4>
+
+        <div className="flex justify-center md:justify-end">
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="group cursor-pointer flex items-center gap-2 hover:text-primary transition-colors"
+          >
+            Go all the way up
+            <motion.div whileHover={{ y: -5 }}>
+              <ArrowUp />
+            </motion.div>
+          </button>
+        </div>
+      </FadeInUpText>
+
     </footer>
   );
 };
