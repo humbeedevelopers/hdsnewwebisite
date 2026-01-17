@@ -2,6 +2,7 @@
 import {Hero, About, Clients, Works, Highlights, Footer, PortalSection } from '@/components'
 
 import portalImage from '../../public/createfuture.webp'
+import ContactForm from '@/components/ContactForm';
 
 const PortalOpen = () => (
   <div 
@@ -22,6 +23,7 @@ const Page = () => {
       />
       <Works />
       <Highlights />
+      <ContactForm />
       <Footer />
     </main>
   )
