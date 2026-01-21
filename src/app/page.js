@@ -4,6 +4,7 @@ import {Hero, About, Clients, Works, Highlights, Footer, ContactForm, ServiceCar
 import portalImage from '../../public/createfuture.webp'
 import PortalSection from '@/components/Utils/PortalSection'
 import PortfolioGrid from '@/components/Utils/PortfolioGrid'
+import Reviews from '@/components/Reviews'
 
 const Page = () => {
   return (
@@ -18,6 +19,7 @@ const Page = () => {
         nextSectionContent={<PortfolioGrid />} 
       />
       <Highlights />
+      <Reviews />
       <ContactForm />
       <Footer />
     </main>
