@@ -1,15 +1,9 @@
 "use client"
-import {Hero, About, Clients, Works, Highlights, Footer, PortalSection } from '@/components'
+import {Hero, About, Clients, Works, Highlights, Footer, ContactForm, ServiceCards } from '@/components'
 
 import portalImage from '../../public/createfuture.webp'
-import ContactForm from '@/components/ContactForm';
-
-const PortalOpen = () => (
-  <div 
-    className="w-full h-screen bg-cover bg-center bg-no-repeat"
-    style={{ backgroundImage: 'url(/Portal-after.png)' }}
-  >Hello</div>
-);
+import PortalSection from '@/components/Utils/PortalSection'
+import PortfolioGrid from '@/components/Utils/PortfolioGrid'
 
 const Page = () => {
   return (
@@ -17,11 +11,12 @@ const Page = () => {
       <Hero />
       <About />
       <Clients />
+      <Works />
+      <ServiceCards />
       <PortalSection 
         foregroundImage={portalImage}
-        nextSectionContent={<PortalOpen />} 
+        nextSectionContent={<PortfolioGrid />} 
       />
-      <Works />
       <Highlights />
       <ContactForm />
       <Footer />
