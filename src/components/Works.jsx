@@ -67,20 +67,18 @@ const Works = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 w-full items-center">
           
           {/* LEFT CONTENT */}
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h2 className="text-5xl md:text-7xl font-instrument tracking-tight mb-8">
-              Our Core <br /> Pillars
-            </h2>
-            <p className="text-gray-500 font-open-sans text-xl max-w-md">
-              Join our curated collection of digital masterpieces where each
-              project showcases our expertise.
-            </p>
+          <div className="flex flex-col gap-24">
+            <div className="flex flex-col gap-5">
+              <h2 className="text-5xl md:text-7xl font-instrument tracking-snug">
+                Core Offerings
+              </h2>
+              <p className="text-text-muted w-2/3 font-open-sans text-lg">
+                Join our curated collection of digital masterpieces where each
+                project showcases our expertise.
+              </p>
+            </div>
 
-            <div className="relative mt-16 hidden lg:block w-[320px] h-[320px]">
+            <div className="relative hidden lg:block w-[320px] h-[320px]">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={activeId}
@@ -98,7 +96,7 @@ const Works = () => {
               </AnimatePresence>
             </div>
 
-          </motion.div>
+          </div>
 
           {/* RIGHT ACCORDION */}
           <div className="flex flex-col">

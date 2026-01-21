@@ -1,4 +1,5 @@
 import WordRotator from "@/Animations/WordRotator";
+import RevealCards from "@/Animations/RevealCards"; // Adjust path as needed
 import React from "react";
 
 const reviews = [
@@ -47,30 +48,29 @@ const StarRating = ({ rating }) => {
   );
 };
 
-const animatedWords = ["agency", "team"]
-
+const animatedWords = ["agency", "team"];
 
 const Reviews = () => {
   return (
     <section className="py-16 px-4">
       <div className="max-w-7xl mx-auto flex flex-col gap-20">
         <h2 className="text-5xl md:text-7xl leading-tight font-instrument text-center">
-        One
-        <WordRotator words={animatedWords} className="min-w-[190px] text-left ml-3 italic text-text-muted" /> 
-        <br /> to rule them all!!
+          One
+          <WordRotator words={animatedWords} className="min-w-[190px] text-left ml-3 italic text-text-muted" /> 
+          <br /> to rule them all!!
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        {/* Using your RevealCards wrapper for staggered animation */}
+        <RevealCards className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {reviews.map((item, index) => (
             <div
               key={index}
-              className="bg-bg-soft rounded-xl p-8 shadow-sm hover:scale-105 transition-transform"
+              className="bg-bg-soft rounded-xl p-8 shadow-sm hover:scale-105 transition-transform h-full"
             >
-              {/* FLEX STACK auto-adjusts spacing */}
               <div className="flex flex-col items-center text-center gap-3">
                 
                 {/* Logo */}
-                <img src={item.logo} />
+                <img src={item.logo} alt="Partner Logo" className="min-h-8 object-contain" />
 
                 {/* Rating Number */}
                 {item.rating && (
@@ -92,7 +92,7 @@ const Reviews = () => {
               </div>
             </div>
           ))}
-        </div>
+        </RevealCards>
       </div>
     </section>
   );

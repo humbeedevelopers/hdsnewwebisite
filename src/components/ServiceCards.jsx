@@ -1,5 +1,6 @@
 import React from 'react';
 import { MoveRight } from 'lucide-react';
+import RevealCards from '@/Animations/RevealCards';
 
 const services = [
   {
@@ -71,11 +72,11 @@ const ServiceCards = () => {
   return (
     <section className="py-12 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <RevealCards className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {services.map((service, index) => (
             <ServiceCard key={index} service={service} />
           ))}
-        </div>
+        </RevealCards>
       </div>
     </section>
   );
