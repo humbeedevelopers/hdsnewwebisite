@@ -1,7 +1,7 @@
 "use client"
 import {Hero, About, Clients, Works, Highlights, Footer, ContactForm, ServiceCards } from '@/components'
 
-import portalImage from '../../public/createfuture.webp'
+import portalImage from '../../public/portal-image.png'
 import PortalSection from '@/components/Utils/PortalSection'
 import PortfolioGrid from '@/components/Utils/PortfolioGrid'
 import Reviews from '@/components/Reviews'

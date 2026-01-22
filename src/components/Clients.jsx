@@ -1,3 +1,4 @@
+import WordReveal from '@/Animations/WordReveal';
 import React from 'react';
 
 const Clients = () => {
@@ -29,8 +30,10 @@ const Clients = () => {
         {/* Header Section */}
         <header className="mb-16 md:mb-20">
           <h2 className="font-instrument text-4xl leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
-            Believed by <br />
-            <span className="text-primary">from Global Brands to Start-ups</span>
+            <WordReveal>
+              Believed by <br />
+              <span className="text-primary">from Global Brands to Start-ups</span>
+            </WordReveal>
           </h2>
         </header>
 

@@ -1,6 +1,7 @@
 import WordRotator from "@/Animations/WordRotator";
 import RevealCards from "@/Animations/RevealCards"; // Adjust path as needed
 import React from "react";
+import WordReveal from "@/Animations/WordReveal";
 
 const reviews = [
   {
@@ -55,9 +56,14 @@ const Reviews = () => {
     <section className="py-16 px-4">
       <div className="max-w-7xl mx-auto flex flex-col gap-20">
         <h2 className="text-5xl md:text-7xl leading-tight font-instrument text-center">
-          One
-          <WordRotator words={animatedWords} className="min-w-[190px] text-left ml-3 italic text-text-muted" /> 
-          <br /> to rule them all!!
+          <WordReveal>
+            One
+          </WordReveal>
+          <WordRotator words={animatedWords} className="min-w-[190px] text-left italic text-text-muted" /> 
+          <br />
+          <WordReveal>
+            to rule them all!!
+          </WordReveal>
         </h2>
 
         {/* Using your RevealCards wrapper for staggered animation */}

@@ -6,6 +6,7 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import SlideButton from "./Utils/SlideButton";
+import WordReveal from "@/Animations/WordReveal";
 
 const Works = () => {
   const [activeId, setActiveId] = useState(1);
@@ -70,7 +71,9 @@ const Works = () => {
           <div className="flex flex-col gap-24">
             <div className="flex flex-col gap-5">
               <h2 className="text-5xl md:text-7xl font-instrument tracking-snug">
-                Core Offerings
+                <WordReveal>
+                  Core Offerings
+                </WordReveal>
               </h2>
               <p className="text-text-muted w-2/3 font-open-sans text-lg">
                 Join our curated collection of digital masterpieces where each

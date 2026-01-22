@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import { useLenis } from 'lenis/react';
+import WordReveal from '@/Animations/WordReveal';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -109,13 +110,21 @@ const About = () => {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-12 px-6 py-12 md:flex-row lg:px-20 lg:py-20">
         <div className="flex w-full flex-col items-start gap-8 md:w-1/2 lg:w-1/3">
           <h2 className="font-instrument text-5xl leading-tight lg:text-6xl">
-            Our Edge <br /> in <span className="text-primary">Excellence</span>
+            <WordReveal>
+              Our Edge 
+            <br /> 
+            in<span className='text-primary'>Excellence </span>
+            </WordReveal>
           </h2>
           <p className="max-w-md text-text-muted leading-relaxed">
             Helping you build a stronger digital presence that captivates audiences and drives meaningful growth through innovative design.
           </p>
           <button className="group relative overflow-hidden rounded-full bg-primary px-8 py-3 text-white">
-            <span className="relative z-10 font-medium">More About Us</span>
+            <span className="relative z-10 font-medium">
+              <WordReveal>
+                More About Us
+              </WordReveal>
+            </span>
           </button>
         </div>
 

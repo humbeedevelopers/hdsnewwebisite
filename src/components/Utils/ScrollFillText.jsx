@@ -22,7 +22,7 @@ const ScrollFillText = ({ text = "", pin = true }) => {
       scrollTrigger: {
         trigger: containerRef.current,
         start: pin ? "top top" : "top 80%",
-        end: pin ? "+=200%" : "top 30%",
+        end: pin ? "+=100%" : "top 30%",
         scrub: true,
         pin,
       },
@@ -46,7 +46,7 @@ const ScrollFillText = ({ text = "", pin = true }) => {
               <span
                 key={`${wordIndex}-${charIndex}`}
                 ref={(el) => el && lettersRef.current.push(el)}
-                className="text-gray-500"
+                className="text-text-muted"
               >
                 {char}
               </span>
