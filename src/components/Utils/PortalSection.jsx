@@ -45,8 +45,8 @@ const PortalSection = ({ foregroundImage, nextSectionContent }) => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full h-screen overflow-hidden bg-black">
-      <div ref={contentRef} className="absolute inset-0 z-[1]">
+    <div ref={containerRef} className="relative w-full overflow-hidden">
+      <div ref={contentRef} className="inset-0 z-[1]">
         {nextSectionContent}
       </div>
       
@@ -55,7 +55,7 @@ const PortalSection = ({ foregroundImage, nextSectionContent }) => {
           ref={imageRef}
           src={foregroundImage.src}
           alt="Portal"
-          className="w-full h-full object-cover"
+          className="w-full h-screen absolute top-0 object-cover"
           style={{ willChange: "transform" }}
         />
       </div>
