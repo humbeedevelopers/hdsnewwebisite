@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import { useLenis } from 'lenis/react';
 import WordReveal from '@/Animations/WordReveal';
+import SlideReveal from '@/Animations/SlideReveal';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -100,8 +101,10 @@ const About = () => {
 
         {/* Right: Demo Image Container */}
         <div className="flex w-full justify-center md:w-1/2 md:justify-end">
-          <div className="aspect-[621/578] w-full max-w-[520px] rounded-card bg-bg-soft md:max-w-[560px] lg:max-w-[621px] overflow-hidden">
-            <img src="/images/demoimage.png" alt="Demo" className="h-full w-full object-cover block" />
+          <div className="aspect-[621/578] w-full max-w-[520px] rounded-card md:max-w-[560px] lg:max-w-[621px] overflow-hidden">
+          <SlideReveal>
+            <img src="https://images.unsplash.com/photo-1768463852001-811ead5844fb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D" alt="Demo" className="h-full w-full object-cover block" />
+          </SlideReveal>
           </div>
         </div>
       </div>

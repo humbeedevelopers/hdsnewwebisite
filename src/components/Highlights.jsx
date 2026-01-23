@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import profileImage from "../../public/portfolio-2.jpg";
 import ScrollFillText from "./Utils/ScrollFillText";
+import SlideReveal from "@/Animations/SlideReveal";
 
 const Highlights = () => {
   const Htext = "We're not just numbers—we're a supportive team and passionate people who love web, apps, social media, animations and thrive in making the experience more fun & meaningful.";
@@ -9,11 +9,11 @@ const Highlights = () => {
 
   return (
     <section className="relative w-full overflow-hidden py-16">
-      <div className="container mx-auto max-w-7xl px-6 md:px-10 flex flex-col gap-32">
+      <div className="container mx-auto max-w-7xl px-6 md:px-10 flex flex-col gap-16">
         
         {/* Header Text */}
         <header className="max-w-4xl mx-auto text-center">
-          <ScrollFillText text={Htext} pin />
+          <ScrollFillText text={Htext} />
         </header>
 
         {/* About Section */}
@@ -47,22 +47,15 @@ const Highlights = () => {
 
           {/* Image Column */}
           <div className="relative w-full max-w-md aspect-square order-1 lg:order-2">
-            {/* Background Decorative Element (The "Enhancement") */}
-            <div className="absolute -inset-4 bg-gray-50 rounded-[2.5rem] -rotate-3 transition-transform duration-700 group-hover:rotate-0" />
-            
             <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] group">
-              <Image
-                src={profileImage}
+              <SlideReveal>
+                <img
+                src='/portfolio-2.jpg'
                 alt="Jay Patel - Founder and Creative Lead"
-                fill
-                sizes="(max-width: 768px) 100vw, 450px"
-                className="object-cover transition-all duration-1000 ease-out group-hover:scale-110 group-hover:rotate-1"
-                placeholder="blur"
-                priority
+                className="object-cover transition-all duration-1000 ease-out group-hover:scale-110"
               />
-              
-              {/* Subtle Overlay Gradient for Depth */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              </SlideReveal>
             </div>
           </div>
 

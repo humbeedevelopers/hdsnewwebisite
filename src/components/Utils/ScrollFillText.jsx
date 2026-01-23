@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ScrollFillText = ({ text = "", pin = true }) => {
+const ScrollFillText = ({ text = "", pin = false }) => {
   if (!text) return null;
 
   const containerRef = useRef(null);
