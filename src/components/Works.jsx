@@ -7,6 +7,7 @@ import {
 } from "framer-motion";
 import SlideButton from "./Utils/SlideButton";
 import WordReveal from "@/Animations/WordReveal";
+import ParagraphTextReveal from "@/Animations/ParagraphTextReveal";
 
 const Works = () => {
   const [activeId, setActiveId] = useState(1);
@@ -75,10 +76,12 @@ const Works = () => {
                   Core Offerings
                 </WordReveal>
               </h2>
-              <p className="text-text-muted w-2/3 font-open-sans text-lg">
-                Join our curated collection of digital masterpieces where each
-                project showcases our expertise.
-              </p>
+              <ParagraphTextReveal>
+                <p className="text-text-muted w-2/3 font-open-sans text-lg">
+                  Join our curated collection of digital masterpieces where each
+                  project showcases our expertise.
+                </p>
+              </ParagraphTextReveal>
             </div>
 
             <div className="relative hidden lg:block w-[320px] h-[320px]">

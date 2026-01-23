@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import ScrollFillText from "./Utils/ScrollFillText";
 import SlideReveal from "@/Animations/SlideReveal";
+import ParagraphTextReveal from "@/Animations/ParagraphTextReveal";
 
 const Highlights = () => {
   const Htext = "We're not just numbers—we're a supportive team and passionate people who love web, apps, social media, animations and thrive in making the experience more fun & meaningful.";
@@ -28,20 +29,24 @@ const Highlights = () => {
               </blockquote>
             </div>
 
-            <p className="font-open-sans text-text-muted text-base md:text-lg leading-relaxed max-w-xl border-l-2 border-gray-100 lg:pl-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-              assumenda a iste repellendus aspernatur praesentium porro dolor
-              magnam distinctio perferendis sunt libero placeat quibusdam soluta
-              amet quam impedit nobis officia.
-            </p>
+            <ParagraphTextReveal delay={0.1}>
+              <p className="font-open-sans text-text-muted text-base md:text-lg leading-relaxed max-w-xl border-l-2 border-gray-100 lg:pl-6">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
+                assumenda a iste repellendus aspernatur praesentium porro dolor
+                magnam distinctio perferendis sunt libero placeat quibusdam soluta
+                amet quam impedit nobis officia.
+              </p>
+            </ParagraphTextReveal>
 
             <footer className="space-y-1">
-              <h4 className="font-semibold text-xl tracking-tight text-text-main">
-                Jay Patel
-              </h4>
-              <p className="text-gray-400 font-light text-sm uppercase tracking-widest">
-                The one with the steering wheel
-              </p>
+              <ParagraphTextReveal delay={0.3}>
+                <h4 className="font-semibold text-xl tracking-tight text-text-main">
+                  Jay Patel
+                </h4>
+                <p className="text-gray-400 font-light text-sm uppercase tracking-widest">
+                  The one with the steering wheel
+                </p>
+              </ParagraphTextReveal>
             </footer>
           </div>
 

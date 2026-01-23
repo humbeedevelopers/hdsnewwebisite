@@ -2,6 +2,7 @@ import WordRotator from '@/Animations/WordRotator';
 import React from 'react';
 import { Widget } from '@typeform/embed-react';
 import WordReveal from '@/Animations/WordReveal';
+import ParagraphTextReveal from '@/Animations/ParagraphTextReveal';
 
 const ContactForm = () => {
   const animatedWords = ["design", "apps", "websites", "brand"];
@@ -25,12 +26,14 @@ const ContactForm = () => {
             </h3>
         </div>
         
-        <p className="mt-8 text-xl font-open-sans text-text-muted">
-            Join our curated collection of digital masterpieces where
-            each project showcases our expertise in designing visually
-            stunning, strategically driven experiences proven to achieve
-            results.
-        </p>
+        <ParagraphTextReveal>
+            <p className="mt-8 text-xl font-open-sans text-text-muted">
+                Join our curated collection of digital masterpieces where
+                each project showcases our expertise in designing visually
+                stunning, strategically driven experiences proven to achieve
+                results.
+            </p>
+        </ParagraphTextReveal>
 
         {/* Typeform Section - Positioned Below */}
         <div className="mt-12 w-full h-[500px] md:h-[600px] rounded-xl overflow-hidden shadow-sm bg-white/20">

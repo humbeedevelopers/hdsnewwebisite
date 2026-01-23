@@ -6,6 +6,7 @@ import { SplitText } from 'gsap/SplitText';
 import { useLenis } from 'lenis/react';
 import WordReveal from '@/Animations/WordReveal';
 import SlideReveal from '@/Animations/SlideReveal';
+import ParagraphTextReveal from '@/Animations/ParagraphTextReveal';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -119,9 +120,11 @@ const About = () => {
             in<span className='text-primary'>Excellence </span>
             </WordReveal>
           </h2>
-          <p className="max-w-md text-text-muted leading-relaxed">
-            Helping you build a stronger digital presence that captivates audiences and drives meaningful growth through innovative design.
-          </p>
+          <ParagraphTextReveal delay={0.2}>
+            <p className="max-w-md text-text-muted leading-relaxed">
+              Helping you build a stronger digital presence that captivates audiences and drives meaningful growth through innovative design.
+            </p>
+          </ParagraphTextReveal>
           <button className="group relative overflow-hidden rounded-full bg-primary px-8 py-3 text-white">
             <span className="relative z-10 font-medium">
               <WordReveal>

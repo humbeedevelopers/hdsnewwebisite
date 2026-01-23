@@ -66,7 +66,6 @@ const Reviews = () => {
           </WordReveal>
         </h2>
 
-        {/* Using your RevealCards wrapper for staggered animation */}
         <RevealCards className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {reviews.map((item, index) => (
             <div

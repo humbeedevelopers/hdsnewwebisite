@@ -31,14 +31,11 @@ const WordReveal = ({ children, delay = 0 }) => {
           </span>
         ));
       }
-
-      // 2. Handle HTML Elements
+      
       if (React.isValidElement(child)) {
         // If it's a <br />, keep it exactly as is
         if (child.type === "br") return child;
 
-        // If it's a <span>, CLONE it to keep its className (text-primary)
-        // then process the text inside it
         if (child.type === "span") {
           return React.cloneElement(child, {
             children: processChildren(child.props.children),
@@ -46,12 +43,11 @@ const WordReveal = ({ children, delay = 0 }) => {
           });
         }
 
-        // If it's a heading (h1-h6), just process its children (flatten it)
+        
         if (typeof child.type === "string" && /^h[1-6]$/i.test(child.type)) {
           return processChildren(child.props.children);
         }
 
-        // Default: process nested children of any other element
         return processChildren(child.props.children);
       }
 
@@ -65,7 +61,7 @@ const WordReveal = ({ children, delay = 0 }) => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      style={{ display: "inline" }} // Keep it inline to not break h2 flow
+      style={{ display: "inline" }} 
     >
       {processChildren(children)}
     </motion.div>
