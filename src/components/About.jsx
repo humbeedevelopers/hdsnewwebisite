@@ -78,10 +78,10 @@ const About = () => {
   }, [lenis]);
 
   return (
-    <section ref={componentRef} className="relative z-10 w-full overflow-hidden selection:bg-blue-100">
+    <section ref={componentRef} className="relative w-full overflow-hidden">
       
       {/* Top Section */}
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-[4vw] px-6 py-16 md:flex-row lg:px-[5vw] lg:py-24">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-[4vw] py-16 md:flex-row px-5 lg:py-24">
         
         {/* Left: Text Animation Content */}
         <div className="w-full md:w-1/2">
@@ -111,7 +111,7 @@ const About = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-12 px-6 py-12 md:flex-row lg:px-20 lg:py-20">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-12 px-6 py-12 md:flex-row lg:py-20">
         <div className="flex w-full flex-col items-start gap-8 md:w-1/2 lg:w-1/3">
           <h2 className="font-instrument text-5xl leading-tight lg:text-6xl">
             <WordReveal>

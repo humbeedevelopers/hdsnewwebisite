@@ -25,7 +25,7 @@ const PortfolioGrid = () => {
     <div className="columns-2 md:columns-3 gap-4 md:gap-10 md:space-y-10 md:px-6 px-2 space-y-4 mt-16">
       {portfolioItems.map((item) => (
         <div key={item.id} className="break-inside-avoid group cursor-pointer">
-          <div className="relative overflow-hidden rounded-lg bg-gray-100 shadow-sm">
+          <div className="relative overflow-hidden rounded-lg bg-bg-soft shadow-sm">
             <Image
               src={item.image}
               alt={item.title}

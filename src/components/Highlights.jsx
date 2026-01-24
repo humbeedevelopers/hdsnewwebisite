@@ -10,7 +10,7 @@ const Highlights = () => {
 
   return (
     <section className="relative w-full overflow-hidden py-16">
-      <div className="container mx-auto max-w-7xl px-6 md:px-10 flex flex-col gap-16">
+      <div className="container mx-auto max-w-7xl px-6 flex flex-col gap-16">
         
         {/* Header Text */}
         <header className="max-w-4xl mx-auto text-center">
@@ -21,7 +21,7 @@ const Highlights = () => {
         <article className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 py-12">
           
           {/* Text Content Column */}
-          <div className="w-full lg:w-1/2 flex flex-col gap-8 text-center lg:text-left items-center lg:items-start order-2 lg:order-1">
+          <div className="w-1/2 flex flex-col gap-8 text-center lg:text-left items-center lg:items-start order-2 lg:order-1">
             
             <div className="group">              
               <blockquote className="relative font-instrument font-light text-2xl md:text-4xl leading-[1.15] text-text-main">
@@ -51,7 +51,7 @@ const Highlights = () => {
           </div>
 
           {/* Image Column */}
-          <div className="relative w-full max-w-md aspect-square order-1 lg:order-2">
+          <div className="relative w-1/2 max-w-md aspect-square order-1 lg:order-2">
             <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] group">
               <SlideReveal>
                 <img
@@ -68,7 +68,7 @@ const Highlights = () => {
 
         {/* Footer Text */}
         <footer className="max-w-4xl mx-auto text-center">
-          <ScrollFillText text={Ftext} pin={false} />
+          <ScrollFillText text={Ftext} />
         </footer>
 
       </div>
