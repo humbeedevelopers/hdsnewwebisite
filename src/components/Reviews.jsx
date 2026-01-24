@@ -53,7 +53,7 @@ const animatedWords = ["agency", "team"];
 
 const Reviews = () => {
   return (
-    <section className="py-16 px-4">
+    <section className="p-4">
       <div className="max-w-7xl mx-auto flex flex-col gap-20">
         <h2 className="text-5xl md:text-7xl leading-tight font-instrument text-center">
           <WordReveal>

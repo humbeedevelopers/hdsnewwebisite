@@ -1,6 +1,5 @@
-import Image from "next/image";
 import React from "react";
-import ScrollFillText from "./Utils/ScrollFillText";
+import ScrollFillText from "../Animations/ScrollFillText";
 import SlideReveal from "@/Animations/SlideReveal";
 import ParagraphTextReveal from "@/Animations/ParagraphTextReveal";
 
@@ -9,7 +8,7 @@ const Highlights = () => {
   const Ftext = "We exist to deliver 360° approach from design to development"
 
   return (
-    <section className="relative w-full overflow-hidden py-16">
+    <section className="relative w-full overflow-hidden py-32">
       <div className="container mx-auto max-w-7xl px-6 flex flex-col gap-16">
         
         {/* Header Text */}
@@ -55,7 +54,7 @@ const Highlights = () => {
             <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] group">
               <SlideReveal>
                 <img
-                src='/portfolio-2.jpg'
+                src='https://plus.unsplash.com/premium_photo-1738692725686-50a275d81090?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                 alt="Jay Patel - Founder and Creative Lead"
                 className="object-cover transition-all duration-1000 ease-out group-hover:scale-110"
               />

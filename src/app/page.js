@@ -3,7 +3,6 @@ import {Hero, About, Clients, Works, Highlights, Footer, ContactForm, ServiceCar
 
 import portalImage from '../../public/portal-image.png'
 import PortalSection from '@/components/Utils/PortalSection'
-import PortfolioGrid from '@/components/Utils/PortfolioGrid'
 import Reviews from '@/components/Reviews'
 
 const Page = () => {
@@ -16,7 +15,6 @@ const Page = () => {
       <ServiceCards />
       <PortalSection 
         foregroundImage={portalImage}
-        nextSectionContent={<PortfolioGrid />} 
       />
       <Highlights />
       <Reviews />
