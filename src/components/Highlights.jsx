@@ -20,7 +20,7 @@ const Highlights = () => {
         <article className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 py-12">
           
           {/* Text Content Column */}
-          <div className="w-1/2 flex flex-col gap-8 text-center lg:text-left items-center lg:items-start order-2 lg:order-1">
+          <div className="w-full lg:w-1/2 flex flex-col gap-8 text-center lg:text-left items-center lg:items-start order-2 lg:order-1">
             
             <div className="group">              
               <blockquote className="relative font-instrument font-light text-2xl md:text-4xl leading-[1.15] text-text-main">
@@ -42,7 +42,7 @@ const Highlights = () => {
                 <h4 className="font-semibold text-xl tracking-tight text-text-main">
                   Jay Patel
                 </h4>
-                <p className="text-gray-400 font-light text-sm uppercase tracking-widest">
+                <p className="text-text-muted font-light text-sm uppercase tracking-widest">
                   The one with the steering wheel
                 </p>
               </ParagraphTextReveal>

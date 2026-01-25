@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, X, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -98,10 +99,10 @@ const Navbar = () => {
               </div>
 
               <ul className="flex flex-col gap-4 text-2xl font-open-sans tracking-tight md:text-2xl">
-                <li className="cursor-pointer transition-all text-text-main hover:translate-x-2">Home</li>
-                <li className="text-surface/60 cursor-pointer transition-all hover:text-text-main hover:translate-x-2">Services</li>
-                <li className="text-surface/60 cursor-pointer transition-all hover:text-text-main hover:translate-x-2">Portfolio</li>
-                <li className="text-surface/60 cursor-pointer transition-all hover:text-text-main hover:translate-x-2">About us</li>
+                <Link onClick={() => setIsOpen(false)} href={'/'} className="cursor-pointer transition-all text-text-main hover:translate-x-2">Home</Link>
+                <Link onClick={() => setIsOpen(false)} href={'/services'} className="text-surface/60 cursor-pointer transition-all hover:text-text-main hover:translate-x-2">Services</Link>
+                <Link onClick={() => setIsOpen(false)} href={""} className="text-surface/60 cursor-pointer transition-all hover:text-text-main hover:translate-x-2">Portfolio</Link>
+                <Link onClick={() => setIsOpen(false)} href={""} className="text-surface/60 cursor-pointer transition-all hover:text-text-main hover:translate-x-2">About us</Link>
               </ul>
 
               <div className="flex flex-col justify-between gap-8 pt-6 border-t border-surface/10 sm:flex-row sm:items-end">
@@ -112,10 +113,10 @@ const Navbar = () => {
                 </div>
                 
                 <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-lg uppercase text-end text-surface/60">
-                  <a href="#" className="hover:text-text-main transition-colors">Instagram</a>
-                  <a href="#" className="hover:text-text-main transition-colors">Dribbble</a>
-                  <a href="#" className="hover:text-text-main transition-colors">Linkedin</a>
-                  <a href="#" className="hover:text-text-main transition-colors">Behance</a>
+                  <Link href={""} className="hover:text-text-main transition-colors">Instagram</Link>
+                  <Link href={""} className="hover:text-text-main transition-colors">Dribbble</Link>
+                  <Link href={""} className="hover:text-text-main transition-colors">Linkedin</Link>
+                  <Link href={""} className="hover:text-text-main transition-colors">Behance</Link>
                 </div>
               </div>
             </div>

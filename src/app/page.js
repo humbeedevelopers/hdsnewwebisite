@@ -10,7 +10,7 @@ const Page = () => {
     <main>
       <Hero />
       <About />
-      <Clients />
+      <Clients head1={'Believed by'} head2={'from Global Brands to Start-ups'} />
       <Works />
       <ServiceCards />
       <PortalSection 
