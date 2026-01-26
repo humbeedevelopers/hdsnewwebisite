@@ -36,7 +36,7 @@ const FAQs = () => {
   };
 
   return (
-    <div className="w-full px-4 md:px-20 mt-10 font-sans">
+    <div className="w-full px-4 mt-10 font-sans">
       <motion.ul 
         variants={containerVariants}
         initial="hidden"
