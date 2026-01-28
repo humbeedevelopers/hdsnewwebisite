@@ -38,10 +38,10 @@ export default function RootLayout({ children }) {
           aria-hidden="true"
         />
 
+        <Navbar />
         <AppShell>
           <SmoothScroll>
             <div className="relative z-10">
-              <Navbar />
               {children}
             </div>
           </SmoothScroll>

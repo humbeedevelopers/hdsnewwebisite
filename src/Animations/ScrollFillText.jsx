@@ -43,7 +43,7 @@ const ScrollFillText = ({ text = "", pin = false, start, end }) => {
     >
       <p className="
         text-2xl sm:text-3xl md:text-4xl lg:text-5xl 
-        font-montserrat font-semibold 
+        font-montserrat font-medium
         leading-snug md:leading-relaxed 
         flex flex-wrap justify-center text-center 
         scale-y-[1.15]"

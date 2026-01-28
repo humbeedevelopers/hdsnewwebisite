@@ -10,6 +10,7 @@ const FadeInUpText = ({
   stagger = 0.15,
   disableStagger = false,
   className = "",
+  delay = 0
 }) => {
   
   const containerVariants = {
@@ -30,6 +31,7 @@ const FadeInUpText = ({
       transition: {
         duration: 1,
         ease: ease,
+        delay : delay
       },
     },
   };

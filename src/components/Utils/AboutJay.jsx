@@ -1,3 +1,4 @@
+import FadeInButtons from '@/Animations/FadeInButtons'
 import ParagraphTextReveal from '@/Animations/ParagraphTextReveal'
 import SlideReveal from '@/Animations/SlideReveal'
 import React from 'react'
@@ -10,10 +11,12 @@ const AboutJay = () => {
         {/* Text Content Column */}
         <div className="w-full lg:w-1/2 flex flex-col gap-8 text-center lg:text-left items-center lg:items-start order-2 lg:order-1">
         
-        <div className="group">              
-            <blockquote className="relative font-instrument font-light text-2xl md:text-4xl leading-[1.15] text-text-main">
-            “In a world where every second counts, we design with intention to maximize dwell time”
-            </blockquote>
+        <div className="group"> 
+            <FadeInButtons>
+                <blockquote className="relative font-instrument font-light text-2xl md:text-4xl leading-[1.15] text-text-main">
+                “In a world where every second counts, we design with intention to maximize dwell time”
+                </blockquote>
+            </FadeInButtons>   
         </div>
 
         <ParagraphTextReveal delay={0.1}>

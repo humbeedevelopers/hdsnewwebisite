@@ -8,7 +8,7 @@ import {
   useVelocity,
   useMotionValue,
 } from "framer-motion";
-import { useLenis } from "lenis/react"; 
+import { useLenis } from "lenis/react";
 
 const images = [
   "https://images.pexels.com/photos/10324713/pexels-photo-10324713.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -22,20 +22,19 @@ const images = [
 const ParallaxImage = ({ src, skewY }) => (
   <motion.div
     style={{ skewY }}
-    className="w-full mb-6 overflow-hidden rounded-[20px] shadow-xl"
+    className="w-full mb-[clamp(1rem,2vw,2.5rem)] overflow-hidden rounded-[clamp(10px,2vw,20px)] shadow-2xl"
   >
     <motion.img
       src={src}
       alt="Gallery item"
       className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-out"
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ scale: 1.08 }}
     />
   </motion.div>
 );
 
 export default function ParallaxGallery() {
   const containerRef = useRef(null);
-
   const scrollY = useMotionValue(0);
   const scrollYProgress = useMotionValue(0);
 
@@ -46,42 +45,45 @@ export default function ParallaxGallery() {
 
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
-    damping: 50,
-    stiffness: 400,
+    damping: 60, 
+    stiffness: 300,
   });
-  const skewY = useTransform(smoothVelocity, [-2000, 0, 2000], [-6, 0, 6]);
 
-  const yUp = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
-  const yDown = useTransform(scrollYProgress, [0, 1], ["-50%", "0%"]);
+  const skewY = useTransform(smoothVelocity, [-3000, 0, 3000], [-5, 0, 5]);
+
+  const yUp = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+  const yDown = useTransform(scrollYProgress, [0, 1], ["-50%", "10%"]);
 
   const tripledImages = [...images, ...images, ...images];
 
   return (
     <section
       ref={containerRef}
-      className="relative py-20 min-h-[200vh] overflow-hidden"
+      className="relative py-[10vh] min-h-[150vh] overflow-hidden bg-white"
     >
-      <div className="flex gap-4 md:gap-10 max-w-[1400px] mx-auto px-6">
-        {/* Column 1 */}
-        <motion.div style={{ y: yUp }} className="flex-1 flex flex-col">
-          {tripledImages.slice(0, 6).map((src, i) => (
+      <div className="flex gap-[clamp(1rem,3vw,3rem)] max-w-[1600px] mx-auto px-[5vw]">
+        
+        {/* Column 1  */}
+        <motion.div style={{ y: yUp }} className="hidden sm:flex flex-1 flex-col">
+          {tripledImages.slice(0, 5).map((src, i) => (
             <ParallaxImage key={`col1-${i}`} src={src} skewY={skewY} />
           ))}
         </motion.div>
 
-        {/* Column 2 */}
-        <motion.div style={{ y: yDown }} className="flex-1 flex flex-col">
-          {tripledImages.slice(2, 8).map((src, i) => (
+        {/* Column 2  */}
+        <motion.div style={{ y: yDown }} className="flex-1 flex flex-col pt-[10vh]">
+          {tripledImages.slice(2, 7).map((src, i) => (
             <ParallaxImage key={`col2-${i}`} src={src} skewY={skewY} />
           ))}
         </motion.div>
 
-        {/* Column 3 */}
-        <motion.div style={{ y: yUp }} className="flex-1 flex flex-col">
-          {tripledImages.slice(4, 10).map((src, i) => (
+        {/* Column 3  */}
+        <motion.div style={{ y: yUp }} className="hidden lg:flex flex-1 flex-col">
+          {tripledImages.slice(4, 9).map((src, i) => (
             <ParallaxImage key={`col3-${i}`} src={src} skewY={skewY} />
           ))}
         </motion.div>
+
       </div>
     </section>
   );
