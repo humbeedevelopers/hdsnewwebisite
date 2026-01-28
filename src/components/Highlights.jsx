@@ -19,7 +19,7 @@ const Highlights = () => {
 
         {/* Footer Text */}
         <footer className="max-w-4xl mx-auto text-center">
-          <ScrollFillText text={Ftext} />
+          <ScrollFillText start={'top 90%'} end={'top 50%'} text={Ftext} />
         </footer>
 
       </div>

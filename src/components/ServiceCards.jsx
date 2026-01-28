@@ -35,38 +35,46 @@ const services = [
 
 const ServiceCard = ({ service }) => {
   return (
-    <div className="flex flex-col">
-      {/* Top Card Section */}
-      <div className={`${service.bgColor} py-10 h-90 flex flex-col`}>
-        <h3 className="text-2xl font-montserrat max-w-3/4 px-4 text-gray-900 mb-6 w-3/4 leading-tight">
+    <div className="group flex flex-col cursor-pointer">
+      <div className={`${service.bgColor} py-10 h-90 flex flex-col transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:shadow-xl rounded-t-2xl overflow-hidden`}>
+        <h3 className="text-[clamp(1.2rem,2vw,1.5rem)] font-montserrat max-w-3/4 px-6 text-gray-900 mb-6 w-3/4 leading-tight transition-transform duration-500 group-hover:translate-x-1">
           {service.title}
         </h3>
         
         {/* BG Grid Area */}
         <div 
-          className={`flex-grow ${service.gridColor} flex items-center justify-center`}
+          className={`flex-grow ${service.gridColor} flex items-center justify-center transition-colors duration-500`}
           style={{ 
             backgroundImage: 'linear-gradient(#00000008 1px, transparent 1px), linear-gradient(90deg, #00000008 1px, transparent 1px)', 
             backgroundSize: '15px 15px' 
           }}
         >
-          {/* Image Placeholder */}
-          <div className="text-6xl opacity-80">
-            <img src={service.image} alt="" />
+          {/* Image Container - Added scaling and subtle rotation */}
+          <div className="text-6xl opacity-80 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-2">
+            <img 
+              src={service.image} 
+              alt={service.title} 
+              className="h-[clamp(4rem,10vw,8rem)] w-auto object-contain"
+            />
           </div>
         </div>
       </div>
 
       {/* Text Section */}
       <div className="mt-5 px-1">
-        <p className="text-md text-text-muted leading-snug mb-4">
+        <p className="text-[clamp(0.875rem,1.1vw,1rem)] text-text-muted leading-snug mb-4 transition-colors duration-300 group-hover:text-text-main">
           {service.description}
         </p>
-        <MoveRight className="text-black w-6 h-6" />
+        
+        <div className="overflow-hidden w-auto">
+          <MoveRight 
+            className="text-black w-6 h-6 transition-transform duration-500 ease-in-out group-hover:translate-x-3" 
+          />
+        </div>
       </div>
     </div>
-  );
-};
+    );
+  };
 
 const ServiceCards = () => {
   return (

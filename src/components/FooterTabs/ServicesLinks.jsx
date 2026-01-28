@@ -36,7 +36,7 @@ const ServicesLinks = () => {
       initial="hidden"
       animate="show"
     >
-      <div className="max-w-6xl mx-auto border-t border-black/30">
+      <div className="mx-auto border-t border-black/30">
         {services.map((service, index) => (
           <motion.div
             key={index}

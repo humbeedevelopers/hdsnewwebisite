@@ -53,19 +53,22 @@ const Footer = () => {
       </FadeInButtons>
 
       {/* Components */}
-      <div className="relative min-h-[400px]"> 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeFilter}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-          >
-            {renderActiveComponent()}
-          </motion.div>
-        </AnimatePresence>
-      </div>
+      <div className="relative h-auto"> 
+  <AnimatePresence mode="wait">
+    <motion.div
+      key={activeFilter}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+      onAnimationComplete={() => {
+        window.dispatchEvent(new Event('refresh-lenis'));
+      }}
+    >
+      {renderActiveComponent()}
+    </motion.div>
+  </AnimatePresence>
+</div>
 
       {/* Email Box */}
       <FadeInUpText className="px-5 md:px-20 mt-10">
@@ -97,7 +100,7 @@ const Footer = () => {
       {/* Closure */}
       <FadeInUpText
         start="-5%"
-        // stagger={0.2}
+        stagger={0.2}
         disableStagger = {true}
         once={false}
         className="grid grid-cols-1 md:grid-cols-3 gap-5 py-6 px-5 mb-5 text-lg md:text-2xl font-montserrat border-t border-white/10 items-center"
@@ -112,7 +115,7 @@ const Footer = () => {
 
         <div className="flex justify-center md:justify-end">
           <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={() => window.scrollTo({ top: 0, behavior:'instant' })}
             className="group cursor-pointer flex items-center gap-2 hover:text-primary transition-colors"
           >
             Go all the way up

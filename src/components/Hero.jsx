@@ -5,7 +5,7 @@ const Hero = () => {
   const cutoutRadius = 'clamp(40px, 8vw, 50px)'; 
 
   return (
-    <section className="min-h-screen w-full p-3 font-instrument flex flex-col">
+    <section className="min-h-screen w-full sm:p-8 md:p-6 lg:p-5 p-3 font-instrument flex flex-col">
         <div 
           className="relative min-h-[85vh] md:min-h-[110vh] w-full rounded-hero bg-primary flex items-center justify-center px-4"
           style={{
@@ -14,7 +14,7 @@ const Hero = () => {
           }}>
             
             <div className='flex flex-col gap-4 md:gap-5 text-center text-bg-light w-full max-w-6xl'>
-              <h1 className='text-[8.5vw] md:text-7xl leading-[1.1] md:leading-tight'>
+              <h1 className='text-[8.5vw] md:text-6xl leading-[1.1] md:leading-tight'>
                 <span className='text-head'> Award Winning </span> <br />
                 Design Agency bridging <br />
                 products, brands and people
@@ -26,9 +26,9 @@ const Hero = () => {
           
         </div>
 
-        <div className="flex justify-center -mt-[31px] sm:-mt-[34px] md:-mt-[38px] animate-bounce relative z-10">
+        <div className="flex justify-center -mt-[31px] sm:-mt-[34px] md:-mt-[38px] animate-bounce">
           <Mouse 
-            size={32} 
+            size={35} 
             className="text-primary rotate-180" 
           />
         </div>

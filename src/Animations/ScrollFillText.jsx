@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ScrollFillText = ({ text = "", pin = false }) => {
+const ScrollFillText = ({ text = "", pin = false, start, end }) => {
   if (!text) return null;
 
   const containerRef = useRef(null);
@@ -22,8 +22,8 @@ const ScrollFillText = ({ text = "", pin = false }) => {
         ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,
-          start: pin ? "top top" : "top 85%",
-          end: pin ? "+=100%" : "top 25%",
+          start: pin ? "top top" : `${start || 'top 85%'}`,
+          end: pin ? "+=100%" : `${end || 'top 25%'}`,
           scrub: true,
           pin,
           invalidateOnRefresh: true, 
@@ -54,7 +54,7 @@ const ScrollFillText = ({ text = "", pin = false }) => {
               <span
                 key={`${wordIndex}-${charIndex}`}
                 ref={(el) => el && lettersRef.current.push(el)}
-                className="text-text-muted transition-colors duration-300"
+                className="text-bg-soft transition-colors duration-300"
               >
                 {char}
               </span>

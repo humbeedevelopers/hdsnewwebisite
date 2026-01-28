@@ -23,12 +23,12 @@ const FadeInUpText = ({
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 30 }, 
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 1.2,
+        duration: 1,
         ease: ease,
       },
     },
@@ -40,7 +40,7 @@ const FadeInUpText = ({
       whileInView="visible"
       viewport={{ 
         once: once, 
-        amount: "some",
+        amount: 0.2,
         margin: `0px 0px ${start} 0px` 
       }}
       variants={containerVariants}
@@ -49,7 +49,7 @@ const FadeInUpText = ({
       {React.Children.map(children, (child) => {
         if (!React.isValidElement(child)) return child;
         return (
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="w-full">
             {child}
           </motion.div>
         );

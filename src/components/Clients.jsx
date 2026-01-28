@@ -26,7 +26,7 @@ const Clients = ({head1, head2, showPara = false}) => {
   ];
 
   return (
-    <section className="w-full py-16 md:py-24 overflow-hidden">
+    <section className="w-full py-8 lg:py-6 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6">
         
         {/* Header Section */}

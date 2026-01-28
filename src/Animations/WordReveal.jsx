@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -6,26 +7,31 @@ const WordReveal = ({ children, delay = 0 }) => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: delay },
+      transition: { staggerChildren: 0.08, delayChildren: delay },
     },
   };
 
   const childVariants = {
-    hidden: { y: "110%", opacity: 0 },
+    hidden: { y: "115%", opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1] },
+      transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] },
     },
   };
 
   const processChildren = (children) => {
     return React.Children.map(children, (child) => {
-      // 1. Handle Plain Text
       if (typeof child === "string") {
         return child.split(" ").map((word, i) => (
-          <span key={i} style={{ display: "inline-block", overflow: "hidden", verticalAlign: "bottom" }}>
-            <motion.span variants={childVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
+          <span 
+            key={i} 
+            className="inline-block overflow-hidden align-bottom"
+          >
+            <motion.span 
+              variants={childVariants} 
+              className="inline-block mr-[0.2em] whitespace-nowrap"
+            >
               {word === "" ? "\u00A0" : word}
             </motion.span>
           </span>
@@ -33,17 +39,16 @@ const WordReveal = ({ children, delay = 0 }) => {
       }
       
       if (React.isValidElement(child)) {
-        // If it's a <br />, keep it exactly as is
         if (child.type === "br") return child;
 
         if (child.type === "span") {
-          return React.cloneElement(child, {
-            children: processChildren(child.props.children),
-            style: { ...child.props.style, display: "inline-block" }
-          });
+          return (
+            <span className={child.props.className} style={{ display: "inline-block" }}>
+              {processChildren(child.props.children)}
+            </span>
+          );
         }
 
-        
         if (typeof child.type === "string" && /^h[1-6]$/i.test(child.type)) {
           return processChildren(child.props.children);
         }
@@ -60,8 +65,8 @@ const WordReveal = ({ children, delay = 0 }) => {
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
-      style={{ display: "inline" }} 
+      viewport={{ once: true, amount: 0.2 }}
+      className="inline"
     >
       {processChildren(children)}
     </motion.div>

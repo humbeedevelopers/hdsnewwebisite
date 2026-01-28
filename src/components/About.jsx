@@ -7,6 +7,7 @@ import { useLenis } from 'lenis/react';
 import WordReveal from '@/Animations/WordReveal';
 import SlideReveal from '@/Animations/SlideReveal';
 import ParagraphTextReveal from '@/Animations/ParagraphTextReveal';
+import CountUp from '@/Animations/CountUp';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -78,16 +79,16 @@ const About = () => {
   }, [lenis]);
 
   return (
-    <section ref={componentRef} className="relative w-full overflow-hidden">
+    <section ref={componentRef} className="relative w-full overflow-hidden sm:px-8">
       
       {/* Top Section */}
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-[4vw] py-16 md:flex-row px-5 lg:py-24">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-[4vw] py-16 md:flex-row px-5">
         
         {/* Left: Text Animation Content */}
         <div className="w-full md:w-1/2">
           <h2 
             ref={textRef}
-            className="font-instrument text-[2.4rem] leading-[1.3] tracking-tight text-text-main md:text-[2.8rem] lg:text-[4vw]"
+            className="font-instrument text-[2.4rem] leading-[1.3] tracking-tight text-text-main md:text-[2.8rem] lg:text-[3.5rem]"
           >
             A Forward Thinking
             <AnimatedImage src="/brain.png" alt="Intelligence" />
@@ -104,15 +105,15 @@ const About = () => {
         <div className="flex w-full justify-center md:w-1/2 md:justify-end">
           <div className="aspect-[621/578] w-full max-w-[520px] rounded-card md:max-w-[560px] lg:max-w-[621px] overflow-hidden">
           <SlideReveal>
-            <img src="https://images.unsplash.com/photo-1768463852001-811ead5844fb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D" alt="Demo" className="h-full w-full object-cover block" />
+            <img src="https://images.unsplash.com/photo-1768463852001-811ead5844fb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D" alt="Demo" className="h-full w-full object-contain sm:object-cover object-center" />
           </SlideReveal>
           </div>
         </div>
       </div>
 
       {/* Bottom Section */}
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-12 px-6 py-12 md:flex-row lg:py-20">
-        <div className="flex w-full flex-col items-start gap-8 md:w-1/2 lg:w-1/3">
+      <div className="mx-auto flex max-w-7xl md:max-w-full lg:max-w-7xl flex-col items-center justify-between gap-8 px-6 py-12 md:flex-row lg:py-20">
+        <div className="flex w-full flex-col items-start gap-8 md:gap-12 md:w-1/2 lg:w-1/3">
           <h2 className="font-instrument text-5xl leading-tight lg:text-6xl">
             <WordReveal>
               Our Edge 
@@ -125,8 +126,9 @@ const About = () => {
               Helping you build a stronger digital presence that captivates audiences and drives meaningful growth through innovative design.
             </p>
           </ParagraphTextReveal>
-          <button className="group relative overflow-hidden rounded-full bg-primary px-8 py-3 text-white">
-            <span className="relative z-10 font-medium">
+          <button className="group relative flex items-center overflow-hidden rounded-full bg-primary px-8 py-3 text-white transition-transform duration-300 hover:scale-105 cursor-pointer font-montserrat shadow-lg hover:shadow-xl">
+            <div className="absolute inset-0 z-0 w-[80%] bg-[#12244A] transition-all duration-500 ease-in-out group-hover:w-full" />
+            <span className="relative z-10 flex items-center gap-2 text-lg">
               <WordReveal>
                 More About Us
               </WordReveal>
@@ -134,11 +136,11 @@ const About = () => {
           </button>
         </div>
 
-        <div className="flex w-full flex-row gap-4 md:w-1/2 lg:w-[45%] h-[400px] md:h-[350px]">
-          <div className="flex flex-1 items-center">
+        <div className="flex w-full font-montserrat flex-row gap-4 md:w-1/2 lg:w-[50%]">
+          <div className="flex flex-1 flex-shrink-0 items-center">
             <StatCard {...STATS_DATA[0]} />
           </div>
-          <div className="flex flex-1 flex-col gap-4">
+          <div className="flex flex-1 flex-shrink-0 flex-col gap-4">
             <StatCard {...STATS_DATA[1]} />
             <StatCard {...STATS_DATA[2]} />
           </div>
@@ -148,13 +150,12 @@ const About = () => {
   );
 };
 
-// Internal Helper: Animated Image with Blur and Reveal Panels
+
 const AnimatedImage = ({ src, alt }) => (
-  <span className="text-animation__word relative mx-2 inline-block align-middle lg:mx-3">
+  <span className="text-animation__word relative inline-block align-middle mx-2 lg:mx-1">
     <span className="text-animation__blur relative inline-block before:absolute before:left-1/2 before:top-0 before:z-0 before:h-full before:w-full before:max-w-[13.75vw] before:max-h-[5.6vw] before:-translate-x-1/2 before:rounded-full before:bg-blue-400/20 before:blur-[3vw] before:content-['']">
-      <span className="text-animation__image-wrapper relative flex h-[1.1em] items-center justify-center overflow-hidden rounded-md">
+      <span className="text-animation__image-wrapper relative flex max-h-[clamp(1.4rem,1em,2.6rem)] h-[clamp(1.4rem,1em,2.6rem)] items-center justify-center overflow-hidden rounded-md">
         <img className="h-full w-auto object-contain" src={src} alt={alt} />
-        {/* These panels must match your bg-bg-light color to "hide" the image */}
         <div className="text-animation__reveal left absolute left-0 top-0 z-10 h-full w-1/2 bg-bg-light" />
         <div className="text-animation__reveal right absolute right-0 top-0 z-10 h-full w-1/2 bg-bg-light" />
       </span>
@@ -163,9 +164,9 @@ const AnimatedImage = ({ src, alt }) => (
 );
 
 const StatCard = ({ label, value }) => (
-  <article className="card relative h-1/2 p-5 w-full bg-[#12244A] rounded-xl flex flex-col justify-between after:content-[''] after:absolute after:top-0 after:-right-2 after:h-full after:w-4 after:bg-[#1759FF] after:rounded-r-2xl after:-z-10 text-white">
-    <h3 className="text-sm font-medium opacity-80 lg:text-lg">{label}</h3>
-    <h1 className="text-3xl font-bold lg:text-4xl">{value}</h1>
+  <article className="card relative min-h-50 sm:min-h-55 md:min-h-60 lg:min-h-70 p-5 sm:w-full lg:w-9/10 bg-[#12244A] rounded-xl flex flex-col justify-between after:content-[''] after:absolute after:top-0 after:-right-2 after:h-full after:w-4 after:bg-secondary after:rounded-r-2xl after:-z-10 text-white">
+    <h3 className="text-xl font-medium opacity-80 lg:text-2xl">{label}</h3>
+    <h1 className="text-4xl lg:text-5xl"> <CountUp value={value} /> </h1>
   </article>
 );
 
