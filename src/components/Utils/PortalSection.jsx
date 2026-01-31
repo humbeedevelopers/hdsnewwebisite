@@ -38,7 +38,7 @@ const PortalSection = ({ foregroundImage }) => {
 }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full overflow-hidden">
+    <div data-nav-color="dark" ref={containerRef} className="relative w-full overflow-hidden">
       <div ref={contentRef} className="inset-0 z-[1] w-full h-[200vh] overflow-hidden">
         <ParallaxGallery />
       </div>

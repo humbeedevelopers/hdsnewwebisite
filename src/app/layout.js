@@ -2,7 +2,7 @@ import { Instrument_Serif, Montserrat, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Utils/Navbar";
 import SmoothScroll from "@/components/Utils/SmoothScroll";
-import AppShell from "@/components/AppShell";
+// import AppShell from "@/components/AppShell";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -38,14 +38,14 @@ export default function RootLayout({ children }) {
           aria-hidden="true"
         />
 
-        <Navbar />
-        <AppShell>
+        {/* <AppShell> */}
           <SmoothScroll>
             <div className="relative z-10">
+              <Navbar />
               {children}
             </div>
           </SmoothScroll>
-        </AppShell>
+        {/* </AppShell> */}
       </body>
     </html>
   );

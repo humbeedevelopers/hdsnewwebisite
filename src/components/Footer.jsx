@@ -54,21 +54,21 @@ const Footer = () => {
 
       {/* Components */}
       <div className="relative h-auto"> 
-  <AnimatePresence mode="wait">
-    <motion.div
-      key={activeFilter}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-      onAnimationComplete={() => {
-        window.dispatchEvent(new Event('refresh-lenis'));
-      }}
-    >
-      {renderActiveComponent()}
-    </motion.div>
-  </AnimatePresence>
-</div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeFilter}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+            onAnimationComplete={() => {
+              window.dispatchEvent(new Event('refresh-lenis'));
+            }}
+          >
+            {renderActiveComponent()}
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
       {/* Email Box */}
       <FadeInUpText className="px-5 md:px-20 mt-10">
@@ -115,7 +115,7 @@ const Footer = () => {
 
         <div className="flex justify-center md:justify-end">
           <button
-            onClick={() => window.scrollTo({ top: 0, behavior:'instant' })}
+            onClick={() => window.scrollTo({ top: 0, behavior : 'smooth' })}
             className="group cursor-pointer flex items-center gap-2 hover:text-primary transition-colors"
           >
             Go all the way up

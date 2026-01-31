@@ -17,8 +17,8 @@ const ScrollFillText = ({ text = "", pin = false, start, end }) => {
 
     const ctx = gsap.context(() => {
       gsap.to(letters, {
-        color: "var(--color-primary)",
-        stagger: 0.03,
+        color: "var(--color-highlight)",
+        stagger: 0.1,
         ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,
@@ -38,15 +38,14 @@ const ScrollFillText = ({ text = "", pin = false, start, end }) => {
     <section
       ref={containerRef}
       className={`${
-        pin ? "min-h-screen px-4" : "min-h-[20vh] md:min-h-[30vh] px-4 py-8"
+        pin ? "min-h-screen px-4" : "min-h-[20vh] md:min-h-[30vh] px-2 py-8 md:px-12"
       } flex items-center justify-center overflow-hidden`}
     >
       <p className="
-        text-2xl sm:text-3xl md:text-4xl lg:text-5xl 
-        font-montserrat font-medium
-        leading-snug md:leading-relaxed 
-        flex flex-wrap justify-center text-center 
-        scale-y-[1.15]"
+        text-3xl sm:text-4xl md:text-5xl lg:text-6xl 
+        font-montserrat font-semibold
+        leading-snug md:leading-tight 
+        flex flex-wrap justify-center text-center "
       >
         {text.split(" ").map((word, wordIndex) => (
           <span key={wordIndex} className="whitespace-nowrap mr-[0.3em]">

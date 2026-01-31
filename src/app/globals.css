@@ -15,6 +15,7 @@ body::-webkit-scrollbar{
   --font-open-sans: var(--font-open-sans);
 
   --color-primary: var(--color-primary);
+  --color-highlight: var(--color-highlight);
   --color-head: var(--color-head);
   --color-secondary: var(--color-secondary);
   --color-surface: var(--color-surface);
@@ -39,6 +40,7 @@ body::-webkit-scrollbar{
   --color-bg-light: #ffffff;
   --color-bg-soft: #E6E6E6;
   --color-head: #F9EF61;
+  --color-highlight: #023E8A;
 
   --radius-hero: 40px;
   --radius-card: 16px;

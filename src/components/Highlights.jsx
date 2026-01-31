@@ -3,7 +3,7 @@ import ScrollFillText from "../Animations/ScrollFillText";
 import AboutJay from "./Utils/AboutJay";
 
 const Highlights = () => {
-  const Htext = "We're not just numbers—we're a supportive team and passionate people who love web, apps, social media, animations and thrive in making the experience more fun & meaningful.";
+  const Htext = "We're not just numbers —we're a supportive team and passionate people who love web, apps, social media, animations and thrive in making the experience more fun & meaningful.";
   const Ftext = "We exist to deliver 360° approach from design to development"
 
   return (
