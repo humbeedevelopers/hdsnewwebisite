@@ -1,15 +1,17 @@
 "use client"
 
-import { Clients, Hero } from "@/components"
+import { Clients, Footer, Hero } from "@/components"
 import { FAQs } from "@/components/FooterTabs"
 import ServiceBenifits from "@/components/ServiceBenifits"
 import ServicesCards from "@/components/ServicesCards"
 import ServicesHero from "@/components/ServicesHero"
 import TabbedComponent from "@/components/TabbedComponent"
 import AboutJay from "@/components/Utils/AboutJay"
+import { useState } from "react"
 
 
 const Page = () => {
+  const [activeFooter, setActiveFooter] = useState("faqs");
   return (
     <main className="w-full">
       <ServicesHero />
@@ -20,7 +22,7 @@ const Page = () => {
         <AboutJay />
         <ServicesCards />
       </div>
-        <FAQs />
+      <Footer activeFilter={activeFooter} setActiveFilter={setActiveFooter} />
     </main>
   )
 }

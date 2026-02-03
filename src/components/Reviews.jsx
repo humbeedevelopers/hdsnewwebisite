@@ -1,6 +1,6 @@
-import WordRotator from "@/Animations/WordRotator";
-import RevealCards from "@/Animations/RevealCards"; // Adjust path as needed
 import React from "react";
+import WordRotator from "@/Animations/WordRotator";
+import RevealCards from "@/Animations/RevealCards";
 import WordReveal from "@/Animations/WordReveal";
 
 const reviews = [

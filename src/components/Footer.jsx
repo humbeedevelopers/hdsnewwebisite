@@ -7,7 +7,7 @@ import {Careers, ContactInformation, ServicesLinks, FAQs} from './FooterTabs'
 import FadeInUpText from "@/Animations/FadeInUpText";
 import FadeInButtons from "@/Animations/FadeInButtons";
 
-const Footer = () => {
+const Footer = ({activeFilter, setActiveFilter}) => {
   const filters = [
     { label: "All Services Links", key: "services" },
     { label: "Contact Info", key: "contact" },
@@ -15,7 +15,6 @@ const Footer = () => {
     { label: "Career", key: "careers" },
   ];
 
-  const [activeFilter, setActiveFilter] = useState("contact");
   const items = [1, 2, 3, 4];
 
   const renderActiveComponent = () => {
@@ -86,7 +85,7 @@ const Footer = () => {
         <div className="flex animate-scroll-left w-max items-center">
           {[...items, ...items, ...items].map((_, index) => (
             <div key={index} className="flex items-center gap-6 px-8">
-              <h1 className="text-4xl md:text-7xl font-thin flex items-center gap-6 whitespace-nowrap uppercase">
+              <h1 className="text-4xl md:text-7xl font-thin flex items-center gap-6 whitespace-nowrap">
                 Let's talk
                 <span className="bg-black text-white p-2 md:p-4 rounded-full">
                   <ArrowUpRight className="w-6 h-6 md:w-10 md:h-10" />

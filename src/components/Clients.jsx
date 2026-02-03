@@ -26,12 +26,12 @@ const Clients = ({head1, head2, showPara = false}) => {
   ];
 
   return (
-    <section className="w-full py-8 lg:py-6 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="w-full py-8 lg:py-6 overflow-hidden px-4 sm:px-8 lg:px-12">
+      <div className="mx-auto w-full max-w-7xl">
         
         {/* Header Section */}
         <header className="mb-16 md:mb-20 flex md:justify-between md:flex-row flex-col gap-4 items-start">
-          <h2 className="font-instrument text-4xl leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
+          <h2 className="font-instrument text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <WordReveal>
               {head1 && head1} <br />
               {head2 && <span className="text-primary">{head2}</span>}

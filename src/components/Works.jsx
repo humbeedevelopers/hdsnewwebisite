@@ -118,7 +118,7 @@ const Works = () => {
       ref={containerRef}
       className="relative h-[300vh] pt-12 md:pt-20"
     >
-      <div className="sticky top-0 h-screen flex items-center px-4 sm:px-8 lg:px-12 overflow-hidden">
+      <div className="sticky top-0 h-auto md:h-screen flex items-center px-4 sm:px-8 lg:px-12 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 w-full items-center h-full">
           
           {/* LEFT CONTENT */}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mouse } from 'lucide-react';
-import { motion } from 'framer-motion'; // 1. Import motion
+import { motion } from 'framer-motion';
 import FadeUpLetters from '@/Animations/FadeUpLetters';
 import FadeInUpText from '@/Animations/FadeInUpText';
 
@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <section data-nav-color="dark" className="min-h-screen w-full sm:p-8 md:p-6 lg:p-5 p-3 font-instrument flex flex-col">
         <motion.div 
-          className="relative min-h-[85vh] md:min-h-[95vh] w-full rounded-hero bg-primary flex items-center justify-center px-4"
+          className="relative min-h-[90vh] md:min-h-[95vh] w-full rounded-hero bg-primary flex items-center justify-center px-4"
           initial={{ opacity: 0}}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

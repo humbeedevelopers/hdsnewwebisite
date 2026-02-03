@@ -51,7 +51,7 @@ export default function ParallaxGallery() {
 
   const skewY = useTransform(smoothVelocity, [-3000, 0, 3000], [-5, 0, 5]);
 
-  const yUp = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+  const yUp = useTransform(scrollYProgress, [0, 1], ["40%", "-40%"]);
   const yDown = useTransform(scrollYProgress, [0, 1], ["-50%", "10%"]);
 
   const tripledImages = [...images, ...images, ...images];

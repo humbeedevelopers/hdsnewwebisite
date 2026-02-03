@@ -79,16 +79,16 @@ const About = () => {
   }, [lenis]);
 
   return (
-    <section ref={componentRef} className="relative w-full overflow-hidden sm:px-8">
+    <section ref={componentRef} className="relative w-full overflow-hidden px-4 sm:px-8 lg:px-12">
       
       {/* Top Section */}
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-[4vw] py-16 md:flex-row px-5">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-[4vw] py-16 md:flex-row">
         
         {/* Left: Text Animation Content */}
-        <div className="w-full md:w-1/2">
+        <div className="w-full md:w-2/5">
           <h2 
             ref={textRef}
-            className="font-instrument text-[2.4rem] leading-[1.3] tracking-tight text-text-main md:text-[2.8rem] lg:text-[3.5rem]"
+            className="font-instrument text-[2.4rem] leading-[1.3] tracking-tight md:text-justify text-text-main md:text-[2.8rem] lg:text-[3.5rem]"
           >
             A Forward Thinking
             <AnimatedImage src="/brain.png" alt="Intelligence" />
@@ -112,9 +112,9 @@ const About = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="mx-auto flex max-w-7xl md:max-w-full lg:max-w-7xl flex-col items-center justify-between gap-8 px-6 py-12 md:flex-row lg:py-20">
+      <div className="mx-auto flex max-w-7xl md:max-w-full lg:max-w-7xl flex-col items-center justify-between gap-8 py-12 md:flex-row lg:py-20">
         <div className="flex w-full flex-col items-start gap-8 md:gap-12 md:w-1/2 lg:w-1/3">
-          <h2 className="font-instrument text-5xl leading-tight lg:text-6xl">
+          <h2 className="font-instrument text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight lg:text-6xl">
             <WordReveal>
               Our Edge 
             <br /> 
@@ -122,13 +122,13 @@ const About = () => {
             </WordReveal>
           </h2>
           <ParagraphTextReveal delay={0.2}>
-            <p className="max-w-md text-text-muted leading-relaxed">
-              Helping you build a stronger digital presence that captivates audiences and drives meaningful growth through innovative design.
+            <p className="text-2xl leading-tight">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum odio, tempore nobis numquam consequatur fugit voluptatibus ipsam quidem ea iusto?
             </p>
           </ParagraphTextReveal>
-          <button className="group relative flex items-center overflow-hidden rounded-full bg-primary px-8 py-3 text-white transition-transform duration-300 hover:scale-105 cursor-pointer font-montserrat shadow-lg hover:shadow-xl">
+          <button className="group relative flex items-center overflow-hidden rounded-full bg-secondary px-12 py-6 text-white transition-transform duration-300 hover:scale-105 cursor-pointer font-montserrat shadow-lg hover:shadow-xl">
             <div className="absolute inset-0 z-0 w-[80%] bg-[#12244A] transition-all duration-500 ease-in-out group-hover:w-full" />
-            <span className="relative z-10 flex items-center gap-2 text-lg">
+            <span className="relative z-10 flex items-center gap-2 text-2xl">
               <WordReveal>
                 More About Us
               </WordReveal>
@@ -154,7 +154,7 @@ const About = () => {
 const AnimatedImage = ({ src, alt }) => (
   <span className="text-animation__word relative inline-block align-middle mx-2 lg:mx-1">
     <span className="text-animation__blur relative inline-block before:absolute before:left-1/2 before:top-0 before:z-0 before:h-full before:w-full before:max-w-[13.75vw] before:max-h-[5.6vw] before:-translate-x-1/2 before:rounded-full before:bg-blue-400/20 before:blur-[3vw] before:content-['']">
-      <span className="text-animation__image-wrapper relative flex max-h-[clamp(1.4rem,1em,2.6rem)] h-[clamp(1.4rem,1em,2.6rem)] items-center justify-center overflow-hidden rounded-md">
+      <span className="text-animation__image-wrapper relative flex max-h-[clamp(2rem,1.5em,3.5rem)] h-[clamp(2rem,1.5em,3.5rem)] items-center justify-center overflow-hidden rounded-md">
         <img className="h-full w-auto object-contain" src={src} alt={alt} />
         <div className="text-animation__reveal left absolute left-0 top-0 z-10 h-full w-1/2 bg-bg-light" />
         <div className="text-animation__reveal right absolute right-0 top-0 z-10 h-full w-1/2 bg-bg-light" />
@@ -164,9 +164,9 @@ const AnimatedImage = ({ src, alt }) => (
 );
 
 const StatCard = ({ label, value }) => (
-  <article className="card relative min-h-50 sm:min-h-55 md:min-h-60 lg:min-h-70 p-5 sm:w-full lg:w-9/10 bg-[#12244A] rounded-xl flex flex-col justify-between after:content-[''] after:absolute after:top-0 after:-right-2 after:h-full after:w-4 after:bg-secondary after:rounded-r-2xl after:-z-10 text-white">
-    <h3 className="text-xl font-medium opacity-80 lg:text-2xl">{label}</h3>
-    <h1 className="text-4xl lg:text-5xl"> <CountUp value={value} /> </h1>
+  <article className="card relative min-h-50 sm:min-h-55 md:min-h-60 lg:min-h-70 p-8 sm:w-full lg:w-9/10 bg-[#12244A] rounded-xl flex flex-col justify-between after:content-[''] after:absolute after:top-0 after:-right-2 after:h-full after:w-4 after:bg-secondary after:rounded-r-2xl after:-z-10 text-white">
+    <h3 className="text-xl font-medium lg:text-3xl">{label}</h3>
+    <h1 className="text-4xl lg:text-6xl font-semibold"> <CountUp value={value} /> </h1>
   </article>
 );
 
