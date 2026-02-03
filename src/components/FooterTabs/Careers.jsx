@@ -6,6 +6,7 @@ import Link from 'next/link';
 import React from 'react';
 import FadeInUpText from '@/Animations/FadeInUpText';
 import StrikeText from '@/Animations/StrikeText';
+import {motion} from 'framer-motion'
 
 const Careers = () => {
   const AvailablePositions = [
@@ -42,23 +43,51 @@ const Careers = () => {
 
       {/* Right Section */}
       <div className='w-full md:w-1/2 border-l-0 md:border-l border-t md:border-t-0'>
-          <FadeInUpText>
-            <h1 className="text-2xl md:text-3xl font-black p-5 border-b border-black">
-              Current Openings
-            </h1>
-          </FadeInUpText>
-          <FadeInUpText stagger={0.1}>
-            {AvailablePositions.map((post, index) => (
-              <Link 
-                key={index}
+
+        <FadeInUpText>
+          <h1 className="text-2xl md:text-3xl font-black p-5 border-b border-black">
+            Current Openings
+          </h1>
+        </FadeInUpText>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.1
+              }
+            }
+          }}
+        >
+          {AvailablePositions.map((post, index) => (
+            <motion.div
+              key={index}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.5, ease: "easeOut" }
+                }
+              }}
+            >
+              <Link
                 href={post.url}
                 className="group flex justify-between items-center border-b transition-all hover:bg-primary hover:text-white hover:pl-6 py-4 px-5"
               >
                 <span className="text-md md:text-lg font-light">{post.title}</span>
-                <FontAwesomeIcon icon={faShareFromSquare} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                <FontAwesomeIcon
+                  icon={faShareFromSquare}
+                  className="opacity-0 group-hover:opacity-100 transition-opacity"
+                />
               </Link>
-            ))}
-          </FadeInUpText>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </div>
   );

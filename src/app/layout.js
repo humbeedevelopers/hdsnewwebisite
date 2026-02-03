@@ -2,6 +2,7 @@ import { Instrument_Serif, Montserrat, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Utils/Navbar";
 import SmoothScroll from "@/components/Utils/SmoothScroll";
+// import AppShell from "@/components/AppShell";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -29,19 +30,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body 
+      <body
         className={`${instrumentSerif.variable} ${montserrat.variable} ${openSans.variable} antialiased bg-bg-light relative`}
       >
-        <div 
-          className="fixed inset-0 -z-10 opacity-[0.15] bg-noise pointer-events-none" 
+        <div
+          className="fixed inset-0 -z-10 opacity-[0.15] bg-noise pointer-events-none"
           aria-hidden="true"
         />
-        <SmoothScroll>
-          <div className="relative z-10">
-            <Navbar />
-            {children}
-          </div>
-        </SmoothScroll>
+
+        {/* <AppShell> */}
+          <SmoothScroll>
+            <div className="relative z-10">
+              <Navbar />
+              {children}
+            </div>
+          </SmoothScroll>
+        {/* </AppShell> */}
       </body>
     </html>
   );

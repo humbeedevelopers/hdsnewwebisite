@@ -33,7 +33,7 @@ const FadeInButtons = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       variants={containerVariants}
       className={className}
     >

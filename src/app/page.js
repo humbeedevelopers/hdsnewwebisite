@@ -1,30 +1,28 @@
 "use client"
-import {Hero, About, Clients, Works, Highlights, Footer, PortalSection } from '@/components'
+import {Hero, About, Clients, Works, Highlights, Footer, ContactForm, ServiceCards } from '@/components'
 
-import portalImage from '../../public/createfuture.webp'
-import ContactForm from '@/components/ContactForm';
-
-const PortalOpen = () => (
-  <div 
-    className="w-full h-screen bg-cover bg-center bg-no-repeat"
-    style={{ backgroundImage: 'url(/Portal-after.png)' }}
-  >Hello</div>
-);
+import portalImage from '../../public/portal-image.png'
+import PortalSection from '@/components/Utils/PortalSection'
+import Reviews from '@/components/Reviews'
+import { useState } from 'react'
 
 const Page = () => {
+  const [activeFooter, setActiveFooter] = useState("contact");
+  
   return (
     <main>
       <Hero />
       <About />
-      <Clients />
+      <Clients head1={'Believed by'} head2={'from Global Brands to Start-ups'} />
+      <Works />
+      <ServiceCards />
       <PortalSection 
         foregroundImage={portalImage}
-        nextSectionContent={<PortalOpen />} 
       />
-      <Works />
       <Highlights />
+      <Reviews />
       <ContactForm />
-      <Footer />
+      <Footer activeFilter={activeFooter} setActiveFilter={setActiveFooter} />
     </main>
   )
 }

@@ -31,18 +31,18 @@ const ServicesLinks = () => {
 
   return (
     <motion.div 
-      className="w-full mt-10 px-5"
+      className="w-full mt-10"
       variants={containerVariants}
       initial="hidden"
       animate="show"
     >
-      <div className="max-w-6xl mx-auto border-t border-black/30">
+      <div className="mx-auto border-t border-black/30">
         {services.map((service, index) => (
           <motion.div
             key={index}
             variants={itemVariants}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="border-b border-black/30 flex items-center justify-center h-[70px] md:h-[85px] text-center text-lg md:text-2xl text-montserrat font-light cursor-pointer group transition-all duration-300 ease-in-out hover:bg-primary hover:text-bg-light">
+            className="border-b border-black/30 flex items-center justify-center h-[60px] text-center text-lg md:text-2xl text-montserrat font-light cursor-pointer group transition-all duration-300 ease-in-out hover:bg-primary hover:text-bg-light">
             <span className="group-hover:scale-105 transition-transform duration-300">
               {service}
             </span>

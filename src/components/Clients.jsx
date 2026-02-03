@@ -1,6 +1,9 @@
+import WordReveal from '@/Animations/WordReveal';
 import React from 'react';
+import {motion} from 'framer-motion'
+import FadeInUpText from '@/Animations/FadeInUpText';
 
-const Clients = () => {
+const Clients = ({head1, head2, showPara = false}) => {
   const CLIENT_LOGOS = [
     { id: 1, name: 'Shivalik', src: '/shivalik.png' },
     { id: 2, name: 'Shivalik', src: '/shivalik.png' },
@@ -23,19 +26,32 @@ const Clients = () => {
   ];
 
   return (
-    <section className="w-full py-16 md:py-24 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="w-full py-8 lg:py-6 overflow-hidden px-4 sm:px-8 lg:px-12">
+      <div className="mx-auto w-full max-w-7xl">
         
         {/* Header Section */}
-        <header className="mb-16 md:mb-20">
-          <h2 className="font-instrument text-4xl leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
-            Believed by <br />
-            <span className="text-primary">from Global Brands to Start-ups</span>
+        <header className="mb-16 md:mb-20 flex md:justify-between md:flex-row flex-col gap-4 items-start">
+          <h2 className="font-instrument text-4xl leading-[1.1] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+            <WordReveal>
+              {head1 && head1} <br />
+              {head2 && <span className="text-primary">{head2}</span>}
+            </WordReveal>
           </h2>
+          {showPara && (
+            <motion.p 
+            initial={{x : 60, opacity : 0}}
+            whileInView={{x : 0, opacity : 1}}
+            viewport={{once : true}}
+            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }} 
+            className='text-sm md:w-[40%] text-right'> 
+            <span className='text-primary'> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem veritatis </span> <br />
+              esse nisi, fugit aliquam repellat nostrum? Velit aliquid quasi quaerat quas error quam autem eligendi nobis officia, ratione ducimus voluptate.</motion.p>
+            )}
+          
         </header>
 
         {/* Animated Logos */}
-        <div className="space-y-8">
+        <FadeInUpText className="space-y-8">
           {rows.map((row, rowIndex) => (
             <div
               key={rowIndex}
@@ -64,7 +80,7 @@ const Clients = () => {
               </div>
             </div>
           ))}
-        </div>
+        </FadeInUpText>
 
       </div>
     </section>

@@ -7,7 +7,7 @@ import {Careers, ContactInformation, ServicesLinks, FAQs} from './FooterTabs'
 import FadeInUpText from "@/Animations/FadeInUpText";
 import FadeInButtons from "@/Animations/FadeInButtons";
 
-const Footer = () => {
+const Footer = ({activeFilter, setActiveFilter}) => {
   const filters = [
     { label: "All Services Links", key: "services" },
     { label: "Contact Info", key: "contact" },
@@ -15,7 +15,6 @@ const Footer = () => {
     { label: "Career", key: "careers" },
   ];
 
-  const [activeFilter, setActiveFilter] = useState("contact");
   const items = [1, 2, 3, 4];
 
   const renderActiveComponent = () => {
@@ -53,7 +52,7 @@ const Footer = () => {
       </FadeInButtons>
 
       {/* Components */}
-      <div className="relative min-h-[400px]"> 
+      <div className="relative h-auto"> 
         <AnimatePresence mode="wait">
           <motion.div
             key={activeFilter}
@@ -61,6 +60,9 @@ const Footer = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+            onAnimationComplete={() => {
+              window.dispatchEvent(new Event('refresh-lenis'));
+            }}
           >
             {renderActiveComponent()}
           </motion.div>
@@ -83,7 +85,7 @@ const Footer = () => {
         <div className="flex animate-scroll-left w-max items-center">
           {[...items, ...items, ...items].map((_, index) => (
             <div key={index} className="flex items-center gap-6 px-8">
-              <h1 className="text-4xl md:text-7xl font-thin flex items-center gap-6 whitespace-nowrap uppercase">
+              <h1 className="text-4xl md:text-7xl font-thin flex items-center gap-6 whitespace-nowrap">
                 Let's talk
                 <span className="bg-black text-white p-2 md:p-4 rounded-full">
                   <ArrowUpRight className="w-6 h-6 md:w-10 md:h-10" />
@@ -97,7 +99,7 @@ const Footer = () => {
       {/* Closure */}
       <FadeInUpText
         start="-5%"
-        // stagger={0.2}
+        stagger={0.2}
         disableStagger = {true}
         once={false}
         className="grid grid-cols-1 md:grid-cols-3 gap-5 py-6 px-5 mb-5 text-lg md:text-2xl font-montserrat border-t border-white/10 items-center"
@@ -112,7 +114,7 @@ const Footer = () => {
 
         <div className="flex justify-center md:justify-end">
           <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={() => window.scrollTo({ top: 0, behavior : 'smooth' })}
             className="group cursor-pointer flex items-center gap-2 hover:text-primary transition-colors"
           >
             Go all the way up
