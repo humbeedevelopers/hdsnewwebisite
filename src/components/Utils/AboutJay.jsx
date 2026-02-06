@@ -20,11 +20,8 @@ const AboutJay = () => {
         </div>
 
         <ParagraphTextReveal delay={0.1}>
-            <p className="font-open-sans text-text-muted text-base md:text-lg leading-relaxed max-w-xl border-l-2 border-gray-100 lg:pl-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-            assumenda a iste repellendus aspernatur praesentium porro dolor
-            magnam distinctio perferendis sunt libero placeat quibusdam soluta
-            amet quam impedit nobis officia.
+            <p className="font-light text-base md:text-xl leading-snug max-w-md md:pr-8">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
             </p>
         </ParagraphTextReveal>
 
@@ -33,7 +30,7 @@ const AboutJay = () => {
             <h4 className="font-semibold text-xl tracking-tight text-text-main">
                 Jay Patel
             </h4>
-            <p className="text-text-muted font-light text-sm uppercase tracking-widest">
+            <p className="font-light text-xl">
                 The one with the steering wheel
             </p>
             </ParagraphTextReveal>

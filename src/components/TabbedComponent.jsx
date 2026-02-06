@@ -59,7 +59,7 @@ const TabbedComponent = () => {
               layout
               onClick={() => setExpandedIndex(index)}
               animate={{ 
-                height: isExpanded ? 400 : 200 
+                height: isExpanded ? 400 : 150 
               }}
               transition={{ 
                 layout: { duration: 0.4, ease: "easeInOut" },

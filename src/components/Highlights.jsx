@@ -8,18 +8,18 @@ const Highlights = () => {
 
   return (
     <section className="relative w-full overflow-hidden py-32">
-      <div className="container mx-auto max-w-7xl px-6 flex flex-col gap-16">
+      <div className="container mx-auto px-6 flex flex-col gap-16">
         
         {/* Header Text */}
-        <header className="max-w-4xl mx-auto text-center">
-          <ScrollFillText text={Htext} />
+        <header className="max-w-6xl mx-auto text-center">
+          <ScrollFillText start={'top 75%'} end={'top -25%'} text={Htext} />
         </header>
 
         <AboutJay />
 
         {/* Footer Text */}
-        <footer className="max-w-4xl mx-auto text-center">
-          <ScrollFillText start={'top 90%'} end={'top 60%'} text={Ftext} />
+        <footer className="mx-auto text-center">
+          <ScrollFillText start={'top 90%'} end={'top 50%'} text={Ftext} />
         </footer>
 
       </div>

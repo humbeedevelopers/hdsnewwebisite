@@ -5,14 +5,15 @@ import {
   useScroll,
   useTransform,
   useMotionValueEvent,
+  useSpring,
 } from "framer-motion";
 import SlideButton from "./Utils/SlideButton";
 import WordReveal from "@/Animations/WordReveal";
 import ParagraphTextReveal from "@/Animations/ParagraphTextReveal";
 
 const AccordionItem = ({ i, pillar, scrollIndex }) => {
-  const collapsedHeight = 60;
-  const expandedHeight = 500;
+  const collapsedHeight = 40;
+  const expandedHeight = 570;
 
   const height = useTransform(
     scrollIndex,
@@ -26,20 +27,37 @@ const AccordionItem = ({ i, pillar, scrollIndex }) => {
     [0, 1, 0]
   );
 
+  const paddingY = useTransform(
+    scrollIndex,
+    [i - 1, i, i + 1],
+    [8, 32, 8]
+  );
+
+  const paddingYSmooth = useSpring(paddingY, {
+    stiffness: 120,
+    damping: 20,
+  });
+
   return (
     <motion.div
       style={{ height }}
-      className={`${pillar.color} w-full rounded-xl md:rounded-2xl overflow-hidden flex flex-col`}
+      className={`${pillar.color} w-full rounded-xl md:rounded-lg overflow-hidden flex flex-col`}
     >
-      <h3 className="text-md p-4 sm:text-lg md:text-xl font-montserrat text-black/90">
+      <motion.h3
+        style={{
+          paddingTop: paddingYSmooth,
+          paddingBottom: paddingYSmooth,
+        }}
+        className="px-12 text-md sm:text-lg md:text-xl font-montserrat text-black/90"
+      >
         {pillar.id}. {pillar.title}
-      </h3>
+      </motion.h3>
 
       <motion.div
         style={{ opacity: contentOpacity }}
-        className="px-5 sm:px-8 mt-auto lg:px-10 pb-8 md:pb-10 flex flex-col h-fit"
+        className="px-8 mt-auto lg:px-12 pb-8 md:pb-10 flex flex-col h-fit"
       >
-        <p className="text-black/75 font-open-sans text-sm sm:text-md md:text-lg leading-relaxed mb-6 md:mb-8 max-w-sm">
+        <p className="text-black/75 font-open-sans text-sm sm:text-md md:text-lg leading-relaxed mb-6 md:mb-8">
           {pillar.content}
         </p>
 
@@ -50,6 +68,7 @@ const AccordionItem = ({ i, pillar, scrollIndex }) => {
     </motion.div>
   );
 };
+
 
 const Works = () => {
   const containerRef = useRef(null);
@@ -129,8 +148,8 @@ const Works = () => {
               </h2>
 
               <ParagraphTextReveal>
-                <p className="text-text-muted w-full md:w-5/6 lg:w-2/3 font-open-sans text-base sm:text-lg md:text-xl leading-relaxed">
-                  Join our curated collection of digital masterpieces where each project showcases our expertise.
+                <p className="w-full md:w-5/6 font-open-sans text-base sm:text-lg md:text-xl leading-relaxed">
+                  Join our curated collection of digital masterpieces where each project showcases our expertise in designing visually stunning, strategically driven experiences proven to achieve results.
                 </p>
               </ParagraphTextReveal>
             </div>

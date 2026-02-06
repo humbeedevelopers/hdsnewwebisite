@@ -24,7 +24,7 @@ const ScrollFillText = ({ text = "", pin = false, start, end }) => {
           trigger: containerRef.current,
           start: pin ? "top top" : `${start || 'top 85%'}`,
           end: pin ? "+=100%" : `${end || 'top 25%'}`,
-          scrub: true,
+          scrub: 1,
           pin,
           invalidateOnRefresh: true, 
         },
@@ -42,7 +42,7 @@ const ScrollFillText = ({ text = "", pin = false, start, end }) => {
       } flex items-center justify-center overflow-hidden`}
     >
       <p className="
-        text-3xl sm:text-4xl md:text-5xl lg:text-6xl 
+        text-4xl sm:text-5xl md:text-6xl lg:text-7xl 
         font-montserrat font-semibold
         leading-snug md:leading-tight 
         flex flex-wrap justify-center text-center "
